@@ -1,9 +1,7 @@
 import "./App.css";
-
+import Navbar from "./components/Navbar";
 function App() {
-  return (
-    <h1 className="bg-slate-800 text-white text-center">Danyar Khdir Mahmud</h1>
-  );
+  return <Navbar />;
 }
 
 export default App;
