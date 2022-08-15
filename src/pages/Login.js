@@ -44,7 +44,10 @@ export default function Login() {
       <div className="border border-gray-500 mx-2 py-5 text-center mt-6 rounded-sm text-l">
         <p>
           Don’t have an account?{" "}
-          <a className="underline  text-gray-600 hover:text-black" href="">
+          <a
+            className="underline  text-gray-600 hover:text-black"
+            href="#blank"
+          >
             Join KrPics
           </a>
         </p>
