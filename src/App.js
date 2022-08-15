@@ -1,9 +1,9 @@
 import "./App.css";
-import MainLayout from "./layouts/MainLayout";
+import Login from "./pages/Login";
 function App() {
   return (
     <div className="bg-primary-500 w-full h-screen">
-      <MainLayout />
+      <Login />
     </div>
   );
 }
