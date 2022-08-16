@@ -1,5 +1,4 @@
 import { MdCamera } from "react-icons/md";
-import Button from "./Button";
 import { Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
