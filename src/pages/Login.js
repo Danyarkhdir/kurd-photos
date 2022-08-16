@@ -13,7 +13,7 @@ export default function Login() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          navigate("/");
+          navigate("/", { replace: true });
         }}
         className="p-2 mt-7 w-full flex flex-col "
         autoComplete="off"

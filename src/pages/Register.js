@@ -35,7 +35,7 @@ export default function Register() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              navigate("/login");
+              navigate("/login", { replace: true });
             }}
             className="p-2 mt-7 pb-20 w-full flex flex-col "
             autoComplete="off"
