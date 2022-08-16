@@ -1,5 +1,6 @@
-import { MdCamera } from "react-icons/ai";
+import { MdCamera } from "react-icons/md";
 import Button from "./Button";
+import { Link } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 export default function Navbar() {
@@ -42,12 +43,19 @@ export default function Navbar() {
               {link.name}
             </li>
           ))}
-          <Button color="bg-sky-800" onHover="hover:bg-sky-600">
-            Log in
-          </Button>
-          <Button color="bg-green-600" onHover="hover:bg-green-700">
+
+          <Link
+            to="login"
+            className="bg-sky-800 md:mx-0 mr-1 text-white font-bold  py-2 px-6 rounded md:ml-8 hover:bg-sky-600 duration-500"
+          >
+            Login
+          </Link>
+          <Link
+            to="register"
+            className="bg-green-600 md:mx-0 mr-1 text-white font-bold  py-2 px-6 rounded md:ml-8 hover:bg-green-700 duration-500"
+          >
             Get Started
-          </Button>
+          </Link>
         </ul>
       </div>
     </div>
