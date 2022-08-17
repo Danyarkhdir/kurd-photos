@@ -1,8 +1,19 @@
 import { AiOutlineCamera } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux/es/exports";
+import { login } from "../features/user/authSlice";
 
 export default function Login() {
   const navigate = useNavigate();
+  const [user, setUser] = useState("");
+  const dispatch = useDispatch();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    dispatch(login(user));
+    navigate("/");
+  };
   return (
     <div className="md:w-6/12 h-screen w-full mx-auto ">
       <div className="text-black  p-1 flex flex-col items-center">
@@ -11,10 +22,7 @@ export default function Login() {
         <h3 className="mt-6  text-l">Welcome Back.</h3>
       </div>
       <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          navigate("/", { replace: true });
-        }}
+        onSubmit={onSubmit}
         className="p-2 mt-7 w-full flex flex-col "
         autoComplete="off"
       >
@@ -25,6 +33,7 @@ export default function Login() {
         </label>
         <input
           required
+          onChange={(e) => setUser(e.target.value)}
           className="h-11 p-2 mt-1 border border-gray-600 rounded focus:outline-none focus:ring-1 focus:ring-black"
           id="username"
           name="username"

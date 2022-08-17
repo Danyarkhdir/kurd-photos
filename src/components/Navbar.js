@@ -1,9 +1,17 @@
 import { MdCamera } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
+import { useDispatch } from "react-redux/es/exports";
+import { logout } from "../features/user/authSlice";
 export default function Navbar() {
-  const logedIn = true;
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    dispatch(logout());
+    navigate("/", { replace: true });
+  };
+  const auth = localStorage.getItem("auth");
   const links = [
     {
       name: "Explore",
@@ -22,7 +30,7 @@ export default function Navbar() {
             KrPics
           </span>
           <div className=" text-white  md:hidden flex items-center">
-            {logedIn && (
+            {auth && (
               <img
                 src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=50&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1MDkyNTA1OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=50"
                 className="mr-4 rounded-full h-9 w-9 cursor-pointer absolute right-16"
@@ -51,12 +59,21 @@ export default function Navbar() {
               {link.name}
             </li>
           ))}
-          {logedIn ? (
-            <img
-              src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=50&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1MDkyNTA1OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=50"
-              className="ml-8 rounded-full xs:hidden md:block h-9 w-9  "
-              alt="user"
-            />
+          {auth ? (
+            <>
+              <img
+                src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=50&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1MDkyNTA1OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=50"
+                className="ml-8 rounded-full xs:hidden md:block h-9 w-9  "
+                alt="user"
+              />
+              <Link
+                onClick={logoutHandler}
+                to="/"
+                className=" md:ml-6 text-l bg-sky-900 py-2 px-4 rounded-lg cursor-pointer text-white hover:bg-sky-700 duration-500 "
+              >
+                Logout
+              </Link>
+            </>
           ) : (
             <>
               <Link
