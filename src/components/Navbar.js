@@ -84,7 +84,7 @@ export default function Navbar() {
               </Link>
               <Link
                 to="register"
-                className="bg-green-600 md:mx-0 mr-1 text-white font-bold  py-2 px-6 rounded md:ml-8 hover:bg-green-700 duration-500"
+                className="bg-green-600 md:mx-0 mr-1 text-white font-bold  py-2 px-6 rounded md:ml-8 hover:bg-green-700"
               >
                 Get Started
               </Link>
