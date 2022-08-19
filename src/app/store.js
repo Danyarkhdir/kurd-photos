@@ -3,7 +3,7 @@ import authSlice from "../features/user/authSlice";
 import profileSlice from "../features/modal/profileSlice";
 export default configureStore({
   reducer: {
-    user: authSlice,
+    auth: authSlice,
     profileModal: profileSlice,
   },
 });

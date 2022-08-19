@@ -1,11 +1,12 @@
 import { MdCamera } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { showModal } from "../features/modal/profileSlice";
 import ProfileModal from "./ProfileModal";
 export default function Navbar() {
+  const auth = useSelector((state) => state.auth.isAuthenticated);
+
   const dispatch = useDispatch();
-  const auth = localStorage.getItem("auth");
   const links = [
     {
       name: "Explore",
@@ -14,7 +15,7 @@ export default function Navbar() {
   ];
   return (
     <>
-      <div className="shadow-md w-full fixed top-0 left-0  ">
+      <div className=" w-full xs:relative md:fixed top-0 left-0 z-50 ">
         <div className="md:flex md:items-center justify-between bg-primary-400 py-4 md:px-10 px-7">
           <div className="font-bold text-2xl  flex items-center bg-primary-400 ">
             <span className="text-3xl  text-white  pr-1">
@@ -50,7 +51,7 @@ export default function Navbar() {
                 key={link.name}
                 className="md:ml-8 text-xl cursor-pointer text-white hover:text-gray-800 duration-500 md:my-0 my-7  "
               >
-                {link.name}
+                <Link to={link.path}>{link.name}</Link>
               </li>
             ))}
             {auth ? (
@@ -65,7 +66,7 @@ export default function Navbar() {
             ) : (
               <>
                 <Link
-                  to="login"
+                  to="/login"
                   className="bg-sky-800 md:mx-0 mr-1 text-white font-bold  py-2 px-6 rounded md:ml-8 hover:bg-sky-600 duration-500"
                 >
                   Login
