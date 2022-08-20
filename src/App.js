@@ -17,7 +17,7 @@ function App() {
   });
   return (
     <div
-      className={`bg-primary-500 w-full h-screen font-alice font-${font}`}
+      className={`bg-primary-500 w-full h-screen font-${font}`}
       dir={language === "en" ? "ltr" : "rtl"}
     >
       <Routes>
