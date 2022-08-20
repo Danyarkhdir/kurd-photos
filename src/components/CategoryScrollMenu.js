@@ -22,25 +22,25 @@ export default function CategoryScrollMenu() {
 
   const slideLeft = () => {
     var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 500;
+    slider.scrollLeft = slider.scrollLeft - 250;
   };
 
   const slideRight = () => {
     var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 500;
+    slider.scrollLeft = slider.scrollLeft + 250;
   };
 
   return (
-    <div className=" md:mt-16 bg-primary-400  w-full ">
+    <div className="fixed xs:top-12 md:top-16 md:pt-2 bg-primary-400  w-full ">
       <div className="relative flex items-center border-b border-black">
         <MdChevronLeft
           className="opacity-50 cursor-pointer hover:opacity-100"
-          onClick={slideLeft}
+          onClick={() => slideLeft()}
           size={40}
         />
         <div
           id="slider"
-          className="w-full h-12 py-7 flex items-center overflow-x-scroll  whitespace-nowrap scroll-smooth scrollbar-hide overflow-y-hidden"
+          className="w-full h-12 py-7 flex items-center overflow-x-scroll  whitespace-nowrap  scrollbar-hide overflow-y-none"
         >
           {selected.map((item) => (
             <p
