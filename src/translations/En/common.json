@@ -1,0 +1,16 @@
+{
+  "register": {
+    "create": "Registeration",
+    "welcome": "Welcome to KrPics ",
+    "register": "Register",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "title": "Already have an account?",
+    "login": "Login",
+    "language": "Change language to",
+    "ar": "arabic",
+    "en": "english",
+    "ku": "kurdish"
+  }
+}

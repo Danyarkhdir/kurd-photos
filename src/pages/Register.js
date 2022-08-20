@@ -1,14 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
 import { MdCamera } from "react-icons/md";
+import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
+import { setLang, setFont } from "../features/user/langSlice";
 export default function Register() {
+  const dispatch = useDispatch();
+  const { t, i18n } = useTranslation("common");
   const navigate = useNavigate();
   return (
-    <div className="md:flex divide-x divide-gray-500 bg-primary-500">
+    <div className={`md:flex  divide-x divide-gray-500 bg-primary-500`}>
       <div className="md:w-4/12 xl:w-5/12  h-64 bg-center  bg-black    md:h-screen  bg-cover bg-no-repeat bg-[url('https://images.unsplash.com/photo-1627987469780-fc77d8c9a586?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')]">
         <div className="px-2 py-4 md:px-6 md:py-6 lg:px-8  lg:py-8 xl:px-12 xl:py-10  ">
           <MdCamera size={"50px"} color={"white"} />
           <h1 className="md:text-4xl md:mt-80 text-4xl mt-28 sm:mt-32 xl:text-5xl lg:mt-80 xl:mt-80 font-bold text-white">
-            Welcome to KrPics
+            {t("register.welcome")}
           </h1>
         </div>
       </div>
@@ -17,15 +22,15 @@ export default function Register() {
         <div className="md:w-7/12 h-screen  mx-auto ">
           <div className="text-black  p-1 flex flex-col items-center">
             <h1 className="text-5xl font-extrabold mt-20 lg:mt-20">
-              Registeration
+              {t("register.create")}
             </h1>
-            <h3 className="mt-6  text-l">
-              Already have an account?{" "}
+            <h3 className="mt-6  text-l ">
+              {t("register.title")}
               <Link
                 className="underline  text-gray-600 hover:text-black"
                 to="/login"
               >
-                Login
+                {t("register.login")}
               </Link>
             </h3>
           </div>
@@ -42,7 +47,7 @@ export default function Register() {
           >
             <label className="text-xl" htmlFor="username">
               <span className="text-xl after:content-['*'] after:ml-0.5 after:text-red-500 block  text-black">
-                Username
+                {t("register.username")}
               </span>
             </label>
             <input
@@ -50,11 +55,11 @@ export default function Register() {
               className="h-11 p-2 mt-1 border border-gray-600 rounded focus:outline-none focus:ring-1 focus:ring-black"
               id="username"
               name="username"
-              placeholder="username"
+              placeholder={t("register.username")}
             />
             <label className="text-xl mt-6" htmlFor="email">
               <span className="text-xl after:content-['*'] after:ml-0.5 after:text-red-500 block  text-black">
-                Email
+                {t("register.email")}
               </span>
             </label>
             <input
@@ -67,7 +72,7 @@ export default function Register() {
             />
             <label className="text-xl mt-6" htmlFor="password">
               <span className="text-xl after:content-['*'] after:ml-0.5 after:text-red-500 block  text-black">
-                Password
+                {t("register.password")}
               </span>
             </label>
             <input
@@ -76,12 +81,42 @@ export default function Register() {
               type="password"
               name="pass"
               id="pass"
-              placeholder="password"
+              placeholder={t("register.password")}
             />
             <input
               type="submit"
-              value="Register"
+              value={t("register.register")}
               className="mt-6 bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
+            />
+            <input
+              className="mt-6  bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
+              type="button"
+              value={`${t("register.language")} ${t("register.ku")}`}
+              onClick={() => {
+                i18n.changeLanguage("ku");
+                dispatch(setLang("ku"));
+                dispatch(setFont("alice"));
+              }}
+            />
+            <input
+              type="button"
+              className="mt-6 bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
+              value={`${t("register.language")} ${t("register.ar")}`}
+              onClick={() => {
+                i18n.changeLanguage("ar");
+                dispatch(setLang("ar"));
+                dispatch(setFont("cairo"));
+              }}
+            />
+            <input
+              type="button"
+              value={`${t("register.language")} ${t("register.en")}`}
+              className="mt-6 bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
+              onClick={() => {
+                i18n.changeLanguage("en");
+                dispatch(setLang("en"));
+                dispatch(setFont(""));
+              }}
             />
           </form>
         </div>

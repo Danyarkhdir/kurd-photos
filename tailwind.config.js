@@ -13,7 +13,9 @@ module.exports = {
           500: "#92b2d3",
         },
       },
+      fontFamily: { cairo: "Cairo", alice: "Alice" },
     },
+
     screens: {
       xs: "200px",
       ...defaultTheme.screens,
