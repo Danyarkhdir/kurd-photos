@@ -31,7 +31,7 @@ export default function CategoryScrollMenu() {
   };
 
   return (
-    <div className="fixed xs:top-12 md:top-16 md:pt-2 bg-primary-400  w-full ">
+    <div className="md:fixed xs:mb-  md:top-16 md:pt-2 bg-primary-400  w-full ">
       <div className="relative flex items-center border-b border-black">
         <MdChevronLeft
           className="opacity-50 cursor-pointer hover:opacity-100"
@@ -40,14 +40,14 @@ export default function CategoryScrollMenu() {
         />
         <div
           id="slider"
-          className="w-full h-12 py-7 flex items-center overflow-x-scroll  whitespace-nowrap  scrollbar-hide overflow-y-hidden"
+          className="w-full h-12 xs:py-0 py-7 flex items-center overflow-x-scroll  whitespace-nowrap  scrollbar-hide overflow-y-hidden"
         >
           {selected.map((item) => (
             <p
               id={item.id}
               key={item.id}
               onClick={() => handleClick(item.id)}
-              className={`xs:text-sm xs:px-3 text-black md:text-2xl md:px-10 xs:py-4 md:py-3 active:bg-gray-400 inline-block cursor-pointer ${
+              className={`xs:text-sm xs:px-3 text-black md:text-2xl md:px-10  md:py-3 active:bg-gray-400 inline-block cursor-pointer ${
                 item.current &&
                 " xs:border-b-2 md:border-b-4 border-black cursor-default"
               } `}

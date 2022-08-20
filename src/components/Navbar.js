@@ -15,8 +15,8 @@ export default function Navbar() {
   ];
   return (
     <>
-      <div className=" w-full xs:relative md:fixed top-0 left-0 z-50 ">
-        <div className="md:flex md:items-center justify-between bg-primary-400 py-4 md:px-10 px-7">
+      <div className=" w-full xs:relative md:fixed top-0 left-0 z-50  ">
+        <div className="md:flex md:items-center justify-between bg-primary-400 xs:pt-4 xs:pb-0 md:py-4 md:px-10 px-7">
           <div className="font-bold text-2xl  flex items-center bg-primary-400 ">
             <span className="text-3xl  text-white  pr-1">
               <MdCamera />
