@@ -17,12 +17,10 @@ const langSlice = createSlice({
   reducers: {
     setLang: (state, action) => {
       state.lang = action.payload;
-      console.log(`language changet to ${state.lang} `);
       localStorage.setItem("lang", action.payload);
     },
     setFont: (state, action) => {
       state.font = action.payload;
-      console.log(`font changet to ${state.font} `);
       localStorage.setItem("font", action.payload);
     },
   },

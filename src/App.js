@@ -8,16 +8,13 @@ import { useSelector } from "react-redux";
 
 function App() {
   const language = useSelector((state) => {
-    console.log(state.language.lang);
     return state.language.lang;
   });
-  const font = useSelector((state) => {
-    console.log(state.language.font);
-    return state.language.font;
-  });
+  const currentFont = useSelector((state) => state.language.font);
+  const font = language !== "en" ? "font-" + currentFont : "";
   return (
     <div
-      className={`bg-primary-500 w-full h-screen font-${font}`}
+      className={`bg-primary-500 w-full h-screen ${font}`}
       dir={language === "en" ? "ltr" : "rtl"}
     >
       <Routes>
