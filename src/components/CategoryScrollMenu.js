@@ -40,7 +40,7 @@ export default function CategoryScrollMenu() {
         />
         <div
           id="slider"
-          className="w-full h-12 py-7 flex items-center overflow-x-scroll  whitespace-nowrap  scrollbar-hide overflow-y-none"
+          className="w-full h-12 py-7 flex items-center overflow-x-scroll  whitespace-nowrap  scrollbar-hide overflow-y-hidden"
         >
           {selected.map((item) => (
             <p
