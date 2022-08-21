@@ -9,10 +9,10 @@ import { useSelector } from "react-redux";
 function App() {
   const language = useSelector((state) => state.language.lang);
   const currentFont = useSelector((state) => state.language.font);
-  // console.log(currentFont);
+  console.log(currentFont);
   return (
     <div
-      className={`bg-primary-500 w-full h-screen ${
+      className={`bg-primary-500 w-full  h-screen ${
         currentFont === "cairo"
           ? "font-cairo"
           : currentFont === "alice"

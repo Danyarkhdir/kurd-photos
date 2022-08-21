@@ -21,5 +21,22 @@
     "password": "كلمة المرور",
     "dontHaveAccount": "ليس لديك حساب؟",
     "join": "انضم"
+  },
+  "languagesDropdown": {
+    "ar": "العربية",
+    "en": "الإنجليزية",
+    "ku": "كردي"
+  },
+  "navbar": {
+    "explore": "عام",
+    "login": "تسجيل الدخول",
+    "getStarted": "ابدأ"
+  },
+  "profileModal": {
+    "explore": "عام",
+    "profile": "الملف الشخصي",
+    "login": "تسجيل الدخول",
+    "getStarted": "ابدأ",
+    "logout": "تسجيل الخروج"
   }
 }

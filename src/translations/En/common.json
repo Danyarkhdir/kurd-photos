@@ -21,5 +21,22 @@
     "password": "Password",
     "dontHaveAccount": "Don't have an account? ",
     "join": "Join"
+  },
+  "languagesDropdown": {
+    "ar": "Arabic",
+    "en": "English",
+    "ku": "Kurdish"
+  },
+  "navbar": {
+    "explore": "Explore",
+    "login": "Login",
+    "getStarted": "Get Started"
+  },
+  "profileModal": {
+    "explore": "Explore",
+    "profile": "Profile",
+    "login": "Login",
+    "getStarted": "Get Started",
+    "logout": "Logout"
   }
 }

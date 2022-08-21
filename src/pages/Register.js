@@ -1,11 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { MdCamera } from "react-icons/md";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
-import { setLang } from "../features/user/langSlice";
+
 export default function Register() {
-  const dispatch = useDispatch();
-  const { t, i18n } = useTranslation("common");
+  const { t } = useTranslation("common");
   const navigate = useNavigate();
   return (
     <div className="md:flex  divide-x divide-gray-500 bg-primary-500 h-fit">
@@ -87,33 +85,6 @@ export default function Register() {
               type="submit"
               value={t("register.register")}
               className="mt-6 bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
-            />
-            <input
-              className="mt-6  bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
-              type="button"
-              value={`${t("register.language")} ${t("register.ku")}`}
-              onClick={() => {
-                i18n.changeLanguage("ku");
-                dispatch(setLang({ lang: "ku", font: "alice" }));
-              }}
-            />
-            <input
-              type="button"
-              className="mt-6 bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
-              value={`${t("register.language")} ${t("register.ar")}`}
-              onClick={() => {
-                i18n.changeLanguage("ar");
-                dispatch(setLang({ lang: "ar", font: "cairo" }));
-              }}
-            />
-            <input
-              type="button"
-              value={`${t("register.language")} ${t("register.en")}`}
-              className="mt-6 bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
-              onClick={() => {
-                i18n.changeLanguage("en");
-                dispatch(setLang({ lang: "en", font: "lato" }));
-              }}
             />
           </form>
         </div>

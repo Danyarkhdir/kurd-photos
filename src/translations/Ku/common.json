@@ -21,5 +21,22 @@
     "password": "وشەی نهێنی",
     "dontHaveAccount": "ئەکاونتت نیە؟",
     "join": "بەشداری بکە"
+  },
+  "languagesDropdown": {
+    "ar": "عەرەبی",
+    "en": "ئینگلیزی",
+    "ku": "کوردی"
+  },
+  "navbar": {
+    "explore": "گشتی",
+    "login": "چونه‌ ژووره‌وه‌",
+    "getStarted": "دەستپێکردن"
+  },
+  "profileModal": {
+    "explore": "گشتی",
+    "profile": "پەڕەی بەکارهێنەر",
+    "login": "چونه‌ ژووره‌وه‌",
+    "getStarted": "دەستپێکردن",
+    "logout": "چوونه‌ دەره‌وه‌"
   }
 }
