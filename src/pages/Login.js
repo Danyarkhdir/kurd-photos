@@ -61,7 +61,7 @@ export default function Login() {
         />
         <input
           type="submit"
-          value="Login"
+          value={t("login.login")}
           className="mt-6 bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
         />
       </form>
