@@ -8,7 +8,7 @@ const initialState = {
       ? "alice"
       : currentLanguage === "ar"
       ? "cairo"
-      : "",
+      : "lato",
 };
 
 const langSlice = createSlice({
@@ -16,12 +16,9 @@ const langSlice = createSlice({
   initialState,
   reducers: {
     setLang: (state, action) => {
-      state.lang = action.payload;
-      localStorage.setItem("lang", action.payload);
-    },
-    setFont: (state, action) => {
-      state.font = action.payload;
-      localStorage.setItem("font", action.payload);
+      state.lang = action.payload.lang;
+      state.font = action.payload.font;
+      localStorage.setItem("lang", action.payload.lang);
     },
   },
 });

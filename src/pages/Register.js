@@ -2,17 +2,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdCamera } from "react-icons/md";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
-import { setLang, setFont } from "../features/user/langSlice";
+import { setLang } from "../features/user/langSlice";
 export default function Register() {
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation("common");
   const navigate = useNavigate();
   return (
-    <div className={`md:flex  divide-x divide-gray-500 bg-primary-500`}>
+    <div className="md:flex  divide-x divide-gray-500 bg-primary-500 h-fit">
       <div className="md:w-4/12 xl:w-5/12  h-64 bg-center  bg-black    md:h-screen  bg-cover bg-no-repeat bg-[url('https://images.unsplash.com/photo-1627987469780-fc77d8c9a586?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')]">
         <div className="px-2 py-4 md:px-6 md:py-6 lg:px-8  lg:py-8 xl:px-12 xl:py-10  ">
           <MdCamera size={"50px"} color={"white"} />
-          <h1 className="md:text-4xl md:mt-80 text-4xl mt-28 sm:mt-32 xl:text-5xl lg:mt-80 xl:mt-80 font-bold text-white">
+          <h1 className="md:text-4xl md:mt-80 text-4xl mt-28 sm:mt-32 xl:text-5xl lg:mt-80 xl:mt-80  text-white">
             {t("register.welcome")}
           </h1>
         </div>
@@ -42,7 +42,7 @@ export default function Register() {
               e.preventDefault();
               navigate("/login", { replace: true });
             }}
-            className="p-2 mt-7 pb-20 w-full flex flex-col "
+            className="p-2 mt-7 pb-20 w-full flex flex-col bg-primary-500"
             autoComplete="off"
           >
             <label className="text-xl" htmlFor="username">
@@ -94,8 +94,7 @@ export default function Register() {
               value={`${t("register.language")} ${t("register.ku")}`}
               onClick={() => {
                 i18n.changeLanguage("ku");
-                dispatch(setLang("ku"));
-                dispatch(setFont("alice"));
+                dispatch(setLang({ lang: "ku", font: "alice" }));
               }}
             />
             <input
@@ -104,8 +103,7 @@ export default function Register() {
               value={`${t("register.language")} ${t("register.ar")}`}
               onClick={() => {
                 i18n.changeLanguage("ar");
-                dispatch(setLang("ar"));
-                dispatch(setFont("cairo"));
+                dispatch(setLang({ lang: "ar", font: "cairo" }));
               }}
             />
             <input
@@ -114,8 +112,7 @@ export default function Register() {
               className="mt-6 bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
               onClick={() => {
                 i18n.changeLanguage("en");
-                dispatch(setLang("en"));
-                dispatch(setFont(""));
+                dispatch(setLang({ lang: "en", font: "lato" }));
               }}
             />
           </form>

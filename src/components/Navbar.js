@@ -15,28 +15,31 @@ export default function Navbar() {
   ];
   return (
     <>
-      <div className=" w-full xs:relative md:fixed top-0 left-0 z-50  ">
+      <div className=" w-full xs:relative md:fixed top-0 left-0 z-40  ">
         <div className="md:flex md:items-center justify-between bg-primary-400 xs:pt-4 xs:pb-0 md:py-4 md:px-10 px-7">
-          <div className="font-bold text-2xl  flex items-center bg-primary-400 ">
-            <span className="text-3xl  text-white  pr-1">
+          <div className="font-bold text-2xl  flex justify-between items-center bg-primary-400 ">
+            {/* left side of navbar */}
+            <div className="text-3xl flex items-center   text-white  ">
               <MdCamera />
-            </span>
-            <span className="font-extraBold text-white  fontFamily-nunito">
-              KrPics
-            </span>
+              <span className="font-extraBold text-white px-1  fontFamily-nunito">
+                KrPics
+              </span>
+            </div>
+
+            {/* right side of navbar */}
             <div className=" text-white  md:hidden flex items-center">
               {auth ? (
                 <img
                   onClick={() => dispatch(showModal())}
                   src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=50&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1MDkyNTA1OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=50"
-                  className=" rounded-full h-9 w-9 cursor-pointer absolute right-8"
+                  className=" rounded-full h-9 w-9 cursor-pointer  "
                   alt="user"
                 />
               ) : (
                 <img
                   onClick={() => dispatch(showModal())}
                   src="https://goodsamjc.org/wp-content/uploads/2020/01/16196015_10154888128487744_6901111466535510271_n.png"
-                  className="rounded-full h-9 w-9 cursor-pointer absolute right-8 "
+                  className="rounded-full h-9 w-9 cursor-pointer  "
                   alt="user"
                 />
               )}

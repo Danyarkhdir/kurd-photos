@@ -13,7 +13,7 @@ module.exports = {
           500: "#92b2d3",
         },
       },
-      fontFamily: { cairo: "Cairo", alice: "Alice" },
+      fontFamily: { cairo: "Cairo", alice: "Alice", lato: "Lato" },
     },
 
     screens: {

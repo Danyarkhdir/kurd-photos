@@ -7,14 +7,18 @@ import CategoryScrollMenu from "./components/CategoryScrollMenu";
 import { useSelector } from "react-redux";
 
 function App() {
-  const language = useSelector((state) => {
-    return state.language.lang;
-  });
+  const language = useSelector((state) => state.language.lang);
   const currentFont = useSelector((state) => state.language.font);
-  const font = language !== "en" ? "font-" + currentFont : "";
+  // console.log(currentFont);
   return (
     <div
-      className={`bg-primary-500 w-full h-screen ${font}`}
+      className={`bg-primary-500 w-full h-screen ${
+        currentFont === "cairo"
+          ? "font-cairo"
+          : currentFont === "alice"
+          ? "font-alice"
+          : "font-lato"
+      }`}
       dir={language === "en" ? "ltr" : "rtl"}
     >
       <Routes>
