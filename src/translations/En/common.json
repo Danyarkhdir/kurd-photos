@@ -12,5 +12,14 @@
     "ar": "arabic",
     "en": "english",
     "ku": "kurdish"
+  },
+  "login": {
+    "login": "Login",
+    "welcome": "Welcome Back.",
+    "username": "Username",
+    "forgotPassword": "Forgot your password?",
+    "password": "Password",
+    "dontHaveAccount": "Don't have an account? ",
+    "join": "Join"
   }
 }
