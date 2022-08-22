@@ -5,16 +5,29 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        `https://api.unsplash.com/collections?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&page=2`
+        `https://api.unsplash.com/photos?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&per_page=50`
       )
-      .then(function (response) {
+      .then((response) => {
         setData(response.data);
-        console.log(data);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
-  }, [data]);
+  }, []);
 
-  return <div className="pt-5 px-5 md:mt-32">Danyar</div>;
+  return (
+    <div className="py-20  md:mt-32 flex flex-wrap gap-5 justify-center bg-primary-500">
+      {data &&
+        data.map((item) => {
+          return (
+            <img
+              className="cursor-pointer xs:w-full  md:w-[22rem] lg:w-[28rem] xl:w-[26rem] object-cover "
+              key={item.id}
+              src={item.urls.regular}
+              alt="something"
+            />
+          );
+        })}
+    </div>
+  );
 }
