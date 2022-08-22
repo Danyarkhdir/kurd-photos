@@ -47,7 +47,7 @@ export default function LanguageDropdown() {
 
   return (
     <Menu as="div" className="relative  mx-3">
-      <Menu.Button className="w-14 inline-flex justify-center bg-white hover:bg-gray-100 rounded-t-md  px-4 py-2    ">
+      <Menu.Button className="w-8 h-8 object-contain   py-2    ">
         <img alt={currentLanguage[0].name} src={currentLanguage[0].icon} />
       </Menu.Button>
 
@@ -60,13 +60,13 @@ export default function LanguageDropdown() {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="  mt-0 w-14 rounded-md   border-none focus:outline-none">
-          <div className="py-1 w-14 rounded-b-md bg-white">
+        <Menu.Items className=" fixed   w-8    border-none focus:outline-none">
+          <div className="py-1 rounded-t-sm rounded-b-md bg-white">
             {language.map((lang) => {
               if (lang.current === false) {
                 return (
                   <Menu.Item key={lang.name}>
-                    <p
+                    <img
                       onClick={() => {
                         changeLanguage(lang.name);
                         i18n.changeLanguage(lang.name.toLowerCase());
@@ -78,11 +78,11 @@ export default function LanguageDropdown() {
                         );
                       }}
                       className={classNames(
-                        "hover:bg-gray-100 cursor-pointer text-gray-900text-gray-700 block px-4 py-2 text-sm"
+                        "hover:bg-gray-100 cursor-pointer object-contain text-gray-900text-gray-700 block  py-1 px-1 text-sm"
                       )}
-                    >
-                      <img alt={lang.name} src={lang.icon} />
-                    </p>
+                      alt={lang.name}
+                      src={lang.icon}
+                    />
                   </Menu.Item>
                 );
               }

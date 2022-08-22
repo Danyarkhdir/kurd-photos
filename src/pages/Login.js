@@ -17,7 +17,7 @@ export default function Login() {
     navigate("/");
   };
   return (
-    <div className="md:w-6/12 h-screen w-full mx-auto ">
+    <div className="md:w-6/12 w-full mx-auto bg-primary-500 pb-4">
       <div className="text-black  p-1 flex flex-col items-center">
         <AiOutlineCamera className="text-black text-8xl " />
         <h1 className="text-5xl mt-2 font-extrabold">{t("login.login")}</h1>
@@ -25,7 +25,7 @@ export default function Login() {
       </div>
       <form
         onSubmit={onSubmit}
-        className="p-2 mt-7 w-full flex flex-col "
+        className="p-2 mt-7 w-full flex flex-col bg-primary-500"
         autoComplete="off"
       >
         <label className="text-xl" htmlFor="username">
@@ -65,7 +65,7 @@ export default function Login() {
           className="mt-6 bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
         />
       </form>
-      <div className="border border-gray-500 mx-2 py-5 text-center mt-6 rounded-sm text-l">
+      <div className="border border-gray-500 bg-gray-300 mx-2 py-5 text-center mt-6 rounded-sm text-l ">
         <p>
           {t("login.dontHaveAccount")}
           <Link

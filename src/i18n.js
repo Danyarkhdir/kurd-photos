@@ -1,8 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import kurdish from "./translations/Ku/common.json";
-import english from "./translations/En/common.json";
-import arabic from "./translations/Ar/common.json";
+import kurdish from "./translations/Ku/kurdish.json";
+import english from "./translations/En/english.json";
+import arabic from "./translations/Ar/arabic.json";
 
 // the translations
 // (tip move them in a JSON file and import them,
