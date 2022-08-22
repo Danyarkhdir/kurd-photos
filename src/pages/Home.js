@@ -14,7 +14,7 @@ export default function Home() {
       .catch(function (error) {
         console.log(error);
       });
-  }, []);
+  }, [data]);
 
   return <div className="pt-5 px-5 md:mt-32">Danyar</div>;
 }
