@@ -27,9 +27,9 @@ export default function Modal() {
           >
             <div className={style}>
               {/*content*/}
-              <div className=" border-0 rounded-b-lg shadow-lg shadow-white  flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className=" border-0 rounded-b-lg shadow-lg  z-50 shadow-white  flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*body*/}
-                <div className="relative divide-y divide-gray-300  text-lg py-3 mx-2 flex-auto">
+                <div className=" divide-y divide-gray-300 z-50  text-lg py-3 mx-2 flex-auto">
                   <div>
                     <Link
                       to="/explore"

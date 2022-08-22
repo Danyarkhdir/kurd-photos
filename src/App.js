@@ -1,10 +1,11 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MainLayout from "./layouts/MainLayout";
 import CategoryScrollMenu from "./components/CategoryScrollMenu";
-import { useSelector } from "react-redux";
+import Home from "./pages/Home";
 
 function App() {
   const language = useSelector((state) => state.language.lang);
@@ -28,6 +29,7 @@ function App() {
             <>
               <MainLayout />
               <CategoryScrollMenu />
+              <Home />
             </>
           }
         />

@@ -16,5 +16,5 @@ export default function Home() {
       });
   }, []);
 
-  return <div className="mt-32 pt-5 px-5 bg-primary-500 ">Danyar</div>;
+  return <div className="pt-5 px-5 md:mt-32">Danyar</div>;
 }
