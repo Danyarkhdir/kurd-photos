@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import MainLayout from "./layouts/MainLayout";
 import CategoryScrollMenu from "./components/CategoryScrollMenu";
 import Home from "./pages/Home";
+import Loading from "./components/Loading";
 
 function App() {
   const language = useSelector((state) => state.language.lang);

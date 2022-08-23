@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Loading from "../components/Loading";
 export default function Home() {
   const [data, setData] = useState();
   useEffect(() => {
@@ -14,10 +15,11 @@ export default function Home() {
         console.log(error);
       });
   }, []);
-
   return (
     <div className="py-20  md:mt-32 flex flex-wrap gap-5 justify-center bg-primary-500">
-      {data &&
+      {!data ? (
+        <Loading />
+      ) : (
         data.map((item) => {
           return (
             <img
@@ -27,7 +29,8 @@ export default function Home() {
               alt="something"
             />
           );
-        })}
+        })
+      )}
     </div>
   );
 }
