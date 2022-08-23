@@ -10,12 +10,7 @@ export default function Navbar() {
   const auth = useSelector((state) => state.auth.isAuthenticated);
 
   const dispatch = useDispatch();
-  const links = [
-    {
-      name: t("navbar.explore"),
-      path: "/",
-    },
-  ];
+
   return (
     <>
       <div className=" w-full xs:relative md:fixed top-0 left-0 z-40 overflow-hidden  ">
@@ -53,14 +48,6 @@ export default function Navbar() {
           <ul
             className={`md:flex md:items-center overflow-hidden  xs:hidden  md:pb-0 pb-12 absolute md:static bg-primary-400 md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0  transition-all duration-500 `}
           >
-            {links.map((link) => (
-              <li
-                key={link.name}
-                className="md:mx-4 text-xl cursor-pointer text-white hover:text-gray-800 duration-500 md:my-0 my-7  "
-              >
-                <Link to={link.path}>{link.name}</Link>
-              </li>
-            ))}
             {auth ? (
               <>
                 <img

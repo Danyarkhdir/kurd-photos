@@ -13,8 +13,8 @@ export default function Modal() {
   const language = useSelector((state) => state.language.lang);
   const style = `${
     language === "en"
-      ? "fixed w-44 xs:right-28 xs:top-14 xs:mt-1 md:right-36 md:top-14  mb-6  mx-auto max-w-3xl"
-      : "fixed w-44 xs:left-28 xs:top-14 xs:mt-1 md:left-36 md:top-14  mb-6  mx-auto max-w-3xl "
+      ? "fixed w-44 xs:right-24 xs:top-14 xs:mt-1 md:right-32 md:top-14  mb-6  mx-auto max-w-3xl"
+      : "fixed w-44 xs:left-24 xs:top-14 xs:mt-1 md:left-32 md:top-14  mb-6  mx-auto max-w-3xl "
   }`;
 
   return (
@@ -29,18 +29,16 @@ export default function Modal() {
               {/*content*/}
               <div className=" border-0 rounded-b-lg shadow-lg  z-50 shadow-white  flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*body*/}
-                <div className=" divide-y divide-gray-300 z-50  text-lg py-3 mx-2 flex-auto">
+                <div
+                  className={`${
+                    auth && "divide-y"
+                  } divide-gray-300 z-50  text-lg py-3  flex-auto`}
+                >
                   <div>
-                    <Link
-                      to="/explore"
-                      className="block  hover:bg-slate-300 md:hidden py-1  cursor-pointer"
-                    >
-                      {t("profileModal.explore")}
-                    </Link>
                     {auth && (
                       <Link
                         to="/profile"
-                        className="block my-1 hover:bg-slate-300  py-1  cursor-pointer"
+                        className="block my-1 hover:bg-slate-300  py-1 px-2  cursor-pointer"
                       >
                         {t("profileModal.profile")}
                       </Link>
@@ -48,13 +46,13 @@ export default function Modal() {
                   </div>
 
                   {/* logout,login and register botton */}
-                  <div className="pt-2">
+                  <div>
                     {auth ? (
                       <Link
                         to="/"
                         onClick={() => dispatch(logout())}
                         type="button"
-                        className="flex items-center    cursor-pointer hover:text-blue-300"
+                        className="flex items-center  px-2  cursor-pointer hover:text-blue-300"
                       >
                         {t("profileModal.logout")}{" "}
                         <BiLogOut className="mx-4" size={"18px"} />
@@ -63,14 +61,14 @@ export default function Modal() {
                       <>
                         <Link
                           to="/login"
-                          className="flex items-center my-2   cursor-pointer hover:text-blue-300"
+                          className="flex items-center px-2 my-2   cursor-pointer hover:text-blue-300"
                         >
                           {t("profileModal.login")}
                           <BiLogIn className="mx-4" size={"18px"} />
                         </Link>
                         <Link
                           to="/register"
-                          className="flex items-center my-2  cursor-pointer hover:text-green-500"
+                          className="flex items-center my-2 px-2 cursor-pointer hover:text-green-500"
                         >
                           {t("profileModal.getStarted")}
                         </Link>
