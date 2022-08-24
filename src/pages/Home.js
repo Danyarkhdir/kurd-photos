@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Loading from "../components/Loading";
-import { render } from "@testing-library/react";
 export default function Home() {
   const [data, setData] = useState();
   const [page, setPage] = useState(1);
@@ -42,7 +41,7 @@ export default function Home() {
         <p
           onClick={() => {
             page >= 1 ? setPage(page - 1) : setPage(page);
-            render();
+            window.scrollTo(0, 0);
           }}
           className={`cursor-pointer disabled ${
             page === 1 ? "hidden" : "inline-flex items-center"
@@ -55,7 +54,7 @@ export default function Home() {
         <p
           onClick={() => {
             page <= 1000 ? setPage(page + 1) : setPage(page);
-            render();
+            window.scrollTo(0, 0);
           }}
           className={`cursor-pointer ${
             page === 1000 ? "hidden" : "inline-flex items-center"
