@@ -2,9 +2,59 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Loading from "../components/Loading";
 export default function Home() {
+  const firstPage = 1,
+    lastPage = 15;
+  const [viewPages, setViewPages] = useState([1, 2]);
   const [data, setData] = useState();
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(firstPage);
   console.log(page);
+
+  const handleNext = () => {
+    page < lastPage ? setPage(page + 1) : setPage(page);
+    page === viewPages[1]
+      ? page === lastPage - 1
+        ? setViewPages([page + 1])
+        : setViewPages([page + 1, page + 2])
+      : setViewPages(viewPages);
+    window.scrollTo(0, 0);
+  };
+
+  const handlePrevious = () => {
+    page > firstPage ? setPage(page - 1) : setPage(page);
+    page === viewPages[1]
+      ? page === firstPage + 1
+        ? setViewPages([firstPage, firstPage + 1])
+        : setViewPages(viewPages)
+      : setViewPages([page - 2, page - 1]);
+    window.scrollTo(0, 0);
+  };
+
+  const handleDoubleNext = () => {
+    if (page === lastPage - 2) {
+      setViewPages([lastPage]);
+    } else {
+      if (page === viewPages[0]) {
+        setViewPages([page + 2, page + 3]);
+        setPage(page + 2);
+      } else {
+        setViewPages([page + 1, page + 2]);
+        setPage(page + 1);
+      }
+    }
+    window.scrollTo(0, 0);
+  };
+
+  const handleDoublePrevious = () => {
+    if (page === viewPages[0]) {
+      setViewPages([page - 2, page - 1]);
+      setPage(page - 1);
+    } else {
+      setViewPages([page - 3, page - 2]);
+      setPage(page - 2);
+    }
+
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     axios
@@ -36,29 +86,58 @@ export default function Home() {
           })
         )}
       </div>
-      <div className="flex justify-center pt-10">
+      <div className="flex justify-center items-center pt-10">
         {/*  Previous Button */}
         <p
-          onClick={() => {
-            page >= 1 ? setPage(page - 1) : setPage(page);
-            window.scrollTo(0, 0);
-          }}
-          className={`cursor-pointer disabled ${
-            page === 1 ? "hidden" : "inline-flex items-center"
-          }   py-2 px-4 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}
+          onClick={handlePrevious}
+          className={`cursor-pointer ${
+            page <= firstPage + 1 ? "hidden" : "flex"
+          }  items-center h-8 mx-3  px-4  text-xs  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-red-600 hover:text-white `}
         >
           Previous
         </p>
 
+        {/* Next pages */}
+        <p
+          onClick={handleDoublePrevious}
+          className={`cursor-pointer ${
+            page <= firstPage + 1 ? "hidden" : "flex items-center"
+          } h-8  mx-1 px-4  text-sm  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-gray-500 hover:text-white `}
+        >
+          ...
+        </p>
+        {viewPages.map((index) => (
+          <p
+            key={index}
+            onClick={() => {
+              setPage(index);
+              window.scrollTo(0, 0);
+            }}
+            className={` ${
+              page === index
+                ? "bg-gray-500 text-white hover:text-white cursor-default"
+                : "text-gray-500  cursor-pointer hover:bg-gray-500 hover:text-white"
+            } flex items-center h-8  mx-1 px-4  text-sm   bg-white rounded-sm border border-gray-300  hover:text-gray-700 `}
+          >
+            {index}
+          </p>
+        ))}
+
+        {/* Double Next */}
+        <p
+          onClick={handleDoubleNext}
+          className={`cursor-pointer ${
+            page >= lastPage - 1 ? "hidden" : "flex items-center"
+          } h-8  mx-1 px-4  text-sm  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-gray-500 hover:text-white `}
+        >
+          ...
+        </p>
         {/* Next Button */}
         <p
-          onClick={() => {
-            page <= 1000 ? setPage(page + 1) : setPage(page);
-            window.scrollTo(0, 0);
-          }}
+          onClick={handleNext}
           className={`cursor-pointer ${
-            page === 1000 ? "hidden" : "inline-flex items-center"
-          }    py-2 px-4 ml-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white`}
+            page > lastPage - 1 ? "hidden" : "flex"
+          }  items-center h-8  mx-3 px-4  text-xs  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-green-800 hover:text-white `}
         >
           Next
         </p>
