@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Loading from "../components/Loading";
 export default function Home() {
+  const { t } = useTranslation("common");
   const firstPage = 1,
     lastPage = 15;
   const [viewPages, setViewPages] = useState([1, 2]);
@@ -69,19 +71,22 @@ export default function Home() {
       });
   }, [page]);
   return (
-    <div className="w-full  flex flex-col bg-primary-500 pt-20 pb-10">
+    <div className="w-full  flex flex-col bg-primary-400 pt-20 pb-10">
       <div className=" md:mt-32 flex flex-wrap gap-5 justify-center ">
         {!data ? (
           <Loading />
         ) : (
           data.map((item) => {
             return (
-              <img
-                className="cursor-pointer xs:w-full  md:w-[22rem] lg:w-[28rem] xl:w-[26rem] object-cover "
-                key={item.id}
-                src={item.urls.regular}
-                alt="something"
-              />
+              <div className="object-cover  ">
+                <img
+                  className="cursor-pointer xs:w-full h-[500px]    md:w-[22rem] lg:w-[28rem] xl:w-[26rem] object-cover "
+                  key={item.id}
+                  src={item.urls.regular}
+                  alt="something"
+                />
+                <h1 className="bg-red-500  ">Danyar</h1>
+              </div>
             );
           })
         )}
@@ -94,7 +99,7 @@ export default function Home() {
             page <= firstPage + 1 ? "hidden" : "flex"
           }  items-center h-8 mx-3  px-4  text-xs  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-red-600 hover:text-white `}
         >
-          Previous
+          {t("home.previous")}
         </p>
 
         {/* Next pages */}
@@ -104,7 +109,7 @@ export default function Home() {
             page <= firstPage + 1 ? "hidden" : "flex items-center"
           } h-8  mx-1 px-4  text-sm  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-gray-500 hover:text-white `}
         >
-          ...
+          ..
         </p>
         {viewPages.map((index) => (
           <p
@@ -130,7 +135,7 @@ export default function Home() {
             page >= lastPage - 1 ? "hidden" : "flex items-center"
           } h-8  mx-1 px-4  text-sm  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-gray-500 hover:text-white `}
         >
-          ...
+          ..
         </p>
         {/* Next Button */}
         <p
@@ -139,7 +144,7 @@ export default function Home() {
             page > lastPage - 1 ? "hidden" : "flex"
           }  items-center h-8  mx-3 px-4  text-xs  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-green-800 hover:text-white `}
         >
-          Next
+          {t("home.next")}
         </p>
       </div>
     </div>

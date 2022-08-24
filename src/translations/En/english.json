@@ -38,5 +38,9 @@
     "login": "Login",
     "getStarted": "Get Started",
     "logout": "Logout"
+  },
+  "home": {
+    "next": "Next",
+    "previous": "Previous"
   }
 }

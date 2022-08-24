@@ -51,7 +51,7 @@ export default function CategoryScrollMenu() {
   };
 
   return (
-    <div className="md:fixed xs:mb-  md:top-16 md:pt-2 bg-primary-400  w-full ">
+    <div className="md:fixed  md:top-16 md:pt-2 bg-primary-400 z-50 w-full ">
       <div className="relative flex items-center border-b border-black">
         {/* Explore */}
         {/* <h1>Danyar</h1> */}
