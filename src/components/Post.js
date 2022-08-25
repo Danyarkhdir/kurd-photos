@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import { MdFavoriteBorder, MdFavorite, MdDownload } from "react-icons/md";
-import loading from "./Loading";
 import Loading from "./Loading";
 
 export default function Post({ postInfo }) {
