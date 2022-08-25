@@ -74,7 +74,7 @@ export default function Home() {
       });
   }, [page]);
   return (
-    <div className="w-full  flex flex-col bg-primary-400 pt-20 pb-10">
+    <div className="w-full  flex flex-col bg-white pt-20 pb-10">
       <Posts posts={posts} />
       <div className="flex justify-center items-center pt-10">
         {/*  Previous Button */}

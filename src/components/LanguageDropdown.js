@@ -48,7 +48,11 @@ export default function LanguageDropdown() {
   return (
     <Menu as="div" className="relative  mx-3">
       <Menu.Button className="w-8 h-8 object-contain   py-2    ">
-        <img alt={currentLanguage[0].name} src={currentLanguage[0].icon} />
+        <img
+          title="Change Language"
+          alt={currentLanguage[0].name}
+          src={currentLanguage[0].icon}
+        />
       </Menu.Button>
 
       <Transition
