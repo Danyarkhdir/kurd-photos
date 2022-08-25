@@ -65,7 +65,7 @@ export default function LanguageDropdown() {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items className=" fixed   w-8    border-none focus:outline-none">
-          <div className="py-1 rounded-t-sm rounded-b-md bg-white">
+          <div className="py-1 rounded-t-sm  rounded-b-md bg-white">
             {language.map((lang) => {
               if (lang.current === false) {
                 return (
