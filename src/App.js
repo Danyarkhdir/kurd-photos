@@ -9,7 +9,6 @@ import Home from "./pages/Home";
 function App() {
   const language = useSelector((state) => state.language.lang);
   const currentFont = useSelector((state) => state.language.font);
-  console.log(currentFont);
   return (
     <div
       className={`bg-primary-500 w-full  h-screen ${

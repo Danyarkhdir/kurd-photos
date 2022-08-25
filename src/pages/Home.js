@@ -1,61 +1,64 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Loading from "../components/Loading";
+import Posts from "../components/Posts";
 export default function Home() {
   const { t } = useTranslation("common");
   const firstPage = 1,
     lastPage = 15;
   const [viewPages, setViewPages] = useState([1, 2]);
-  const [data, setData] = useState();
+  const [posts, setPosts] = useState();
   const [page, setPage] = useState(firstPage);
   console.log(page);
 
-  const handleNext = () => {
-    page < lastPage ? setPage(page + 1) : setPage(page);
-    page === viewPages[1]
-      ? page === lastPage - 1
-        ? setViewPages([page + 1])
-        : setViewPages([page + 1, page + 2])
-      : setViewPages(viewPages);
-    window.scrollTo(0, 0);
-  };
-
-  const handlePrevious = () => {
-    page > firstPage ? setPage(page - 1) : setPage(page);
-    page === viewPages[1]
-      ? page === firstPage + 1
-        ? setViewPages([firstPage, firstPage + 1])
-        : setViewPages(viewPages)
-      : setViewPages([page - 2, page - 1]);
-    window.scrollTo(0, 0);
-  };
-
-  const handleDoubleNext = () => {
-    if (page === lastPage - 2) {
-      setViewPages([lastPage]);
-    } else {
-      if (page === viewPages[0]) {
-        setViewPages([page + 2, page + 3]);
+  const paginationHandler = {
+    handleNext: () => {
+      page < lastPage ? setPage(page + 1) : setPage(page);
+      page === viewPages[1]
+        ? page === lastPage - 1
+          ? setViewPages([page + 1])
+          : setViewPages([page + 1, page + 2])
+        : setViewPages(viewPages);
+      window.scrollTo(0, 0);
+    },
+    handlePrev: () => {
+      page > firstPage ? setPage(page - 1) : setPage(page);
+      page === viewPages[1]
+        ? page === firstPage + 1
+          ? setViewPages([firstPage, firstPage + 1])
+          : setViewPages(viewPages)
+        : setViewPages([page - 2, page - 1]);
+      window.scrollTo(0, 0);
+    },
+    handleDoubleNext: () => {
+      if (page === lastPage - 2) {
+        setViewPages([lastPage]);
         setPage(page + 2);
-      } else {
-        setViewPages([page + 1, page + 2]);
+      } else if (page === lastPage - 1) {
+        setViewPages([lastPage]);
         setPage(page + 1);
+      } else {
+        if (page === viewPages[0]) {
+          setViewPages([page + 2, page + 3]);
+          setPage(page + 2);
+        } else {
+          setViewPages([page + 1, page + 2]);
+          setPage(page + 1);
+        }
       }
-    }
-    window.scrollTo(0, 0);
-  };
+      window.scrollTo(0, 0);
+    },
+    handleDoublePrev: () => {
+      if (page === viewPages[0]) {
+        setViewPages([page - 2, page - 1]);
+        setPage(page - 1);
+      } else {
+        setViewPages([page - 3, page - 2]);
+        setPage(page - 2);
+      }
 
-  const handleDoublePrevious = () => {
-    if (page === viewPages[0]) {
-      setViewPages([page - 2, page - 1]);
-      setPage(page - 1);
-    } else {
-      setViewPages([page - 3, page - 2]);
-      setPage(page - 2);
-    }
-
-    window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
+    },
   };
 
   useEffect(() => {
@@ -64,7 +67,7 @@ export default function Home() {
         `https://api.unsplash.com/photos?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&page=${page}&per_page=50`
       )
       .then((response) => {
-        setData(response.data);
+        setPosts(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -72,29 +75,11 @@ export default function Home() {
   }, [page]);
   return (
     <div className="w-full  flex flex-col bg-primary-400 pt-20 pb-10">
-      <div className=" md:mt-32 flex flex-wrap gap-5 justify-center ">
-        {!data ? (
-          <Loading />
-        ) : (
-          data.map((item) => {
-            return (
-              <div className="object-cover  ">
-                <img
-                  className="cursor-pointer xs:w-full h-[500px]    md:w-[22rem] lg:w-[28rem] xl:w-[26rem] object-cover "
-                  key={item.id}
-                  src={item.urls.regular}
-                  alt="something"
-                />
-                <h1 className="bg-red-500  ">Danyar</h1>
-              </div>
-            );
-          })
-        )}
-      </div>
+      <Posts posts={posts} />
       <div className="flex justify-center items-center pt-10">
         {/*  Previous Button */}
         <p
-          onClick={handlePrevious}
+          onClick={paginationHandler.handlePrev}
           className={`cursor-pointer ${
             page <= firstPage + 1 ? "hidden" : "flex"
           }  items-center h-8 mx-3  px-4  text-xs  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-red-600 hover:text-white `}
@@ -104,7 +89,7 @@ export default function Home() {
 
         {/* Next pages */}
         <p
-          onClick={handleDoublePrevious}
+          onClick={paginationHandler.handleDoublePrev}
           className={`cursor-pointer ${
             page <= firstPage + 1 ? "hidden" : "flex items-center"
           } h-8  mx-1 px-4  text-sm  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-gray-500 hover:text-white `}
@@ -130,16 +115,16 @@ export default function Home() {
 
         {/* Double Next */}
         <p
-          onClick={handleDoubleNext}
+          onClick={paginationHandler.handleDoubleNext}
           className={`cursor-pointer ${
-            page >= lastPage - 1 ? "hidden" : "flex items-center"
+            page === lastPage ? "hidden" : "flex items-center"
           } h-8  mx-1 px-4  text-sm  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-gray-500 hover:text-white `}
         >
           ..
         </p>
         {/* Next Button */}
         <p
-          onClick={handleNext}
+          onClick={paginationHandler.handleNext}
           className={`cursor-pointer ${
             page > lastPage - 1 ? "hidden" : "flex"
           }  items-center h-8  mx-3 px-4  text-xs  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-green-800 hover:text-white `}
