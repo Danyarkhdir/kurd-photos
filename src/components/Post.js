@@ -41,7 +41,9 @@ export default function Post({ postInfo }) {
   };
   return (
     <>
-      <div className={`${loaded ? "hidden" : "visible bg-black h-screen"}`}>
+      <div
+        className={`${loaded ? "hidden" : "block bg-black w-full h-screen"}`}
+      >
         <Loading />
       </div>
       <div className={`${loaded ? "block md:rounded-b-sm" : "hidden "}`}>
