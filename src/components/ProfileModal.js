@@ -23,7 +23,7 @@ export default function Modal() {
         <>
           <div
             onClick={() => dispatch(showModal())}
-            className="z-20 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed  inset-0  outline-none focus:outline-none"
+            className="z-50 justify-center items-center flex overflow-x-hidden overflow-y-auto fixed  inset-0  outline-none focus:outline-none"
           >
             <div className={style}>
               {/*content*/}

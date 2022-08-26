@@ -73,64 +73,77 @@ export default function Home() {
         console.log(error);
       });
   }, [page]);
+
   return (
-    <div className="w-full  flex flex-col bg-white pt-20 pb-10">
-      <Posts posts={posts} />
-      <div className="flex justify-center items-center pt-10">
-        {/*  Previous Button */}
-        <p
-          onClick={paginationHandler.handlePrev}
-          className={`cursor-pointer ${
-            page <= firstPage + 1 ? "hidden" : "flex"
-          }  items-center h-8 mx-3  px-4  text-xs  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-red-600 hover:text-white `}
-        >
-          {t("home.previous")}
-        </p>
-
-        {/* Next pages */}
-        <p
-          onClick={paginationHandler.handleDoublePrev}
-          className={`cursor-pointer ${
-            page <= firstPage + 1 ? "hidden" : "flex items-center"
-          } h-8  mx-1 px-4  text-sm  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-gray-500 hover:text-white `}
-        >
-          ..
-        </p>
-        {viewPages.map((index) => (
+    <div className="md:mt-28 md:pt-4 ">
+      <div
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1633647517075-3bdafbc7b68c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80')",
+        }}
+        className="flex items-start  px-10 flex-col justify-center w-full xs:h-[400px]  lg:h-[600px] bg-cover bg-white"
+      >
+        <p className="text-9xl text-white ">KrPics</p>
+        <p className="text-xl text-white ">{t("home.title")}</p>
+      </div>
+      <div className="w-full  flex flex-col bg-white  ">
+        <Posts posts={posts} />
+        <div className="flex justify-center items-center ">
+          {/*  Previous Button */}
           <p
-            key={index}
-            onClick={() => {
-              setPage(index);
-              window.scrollTo(0, 0);
-            }}
-            className={` ${
-              page === index
-                ? "bg-gray-500 text-white hover:text-white cursor-default"
-                : "text-gray-500  cursor-pointer hover:bg-gray-500 hover:text-white"
-            } flex items-center h-8  mx-1 px-4  text-sm   bg-white rounded-sm border border-gray-300  hover:text-gray-700 `}
+            onClick={paginationHandler.handlePrev}
+            className={`cursor-pointer ${
+              page <= firstPage + 1 ? "hidden" : "flex"
+            }  items-center h-8 mx-3  px-4  text-xs  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-red-600 hover:text-white `}
           >
-            {index}
+            {t("home.previous")}
           </p>
-        ))}
 
-        {/* Double Next */}
-        <p
-          onClick={paginationHandler.handleDoubleNext}
-          className={`cursor-pointer ${
-            page === lastPage ? "hidden" : "flex items-center"
-          } h-8  mx-1 px-4  text-sm  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-gray-500 hover:text-white `}
-        >
-          ..
-        </p>
-        {/* Next Button */}
-        <p
-          onClick={paginationHandler.handleNext}
-          className={`cursor-pointer ${
-            page > lastPage - 1 ? "hidden" : "flex"
-          }  items-center h-8  mx-3 px-4  text-xs  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-green-800 hover:text-white `}
-        >
-          {t("home.next")}
-        </p>
+          {/* Next pages */}
+          <p
+            onClick={paginationHandler.handleDoublePrev}
+            className={`cursor-pointer ${
+              page <= firstPage + 1 ? "hidden" : "flex items-center"
+            } h-8  mx-1 px-4  text-sm  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-gray-500 hover:text-white `}
+          >
+            ..
+          </p>
+          {viewPages.map((index) => (
+            <p
+              key={index}
+              onClick={() => {
+                setPage(index);
+                window.scrollTo(0, 0);
+              }}
+              className={` ${
+                page === index
+                  ? "bg-gray-500 text-white hover:text-white cursor-default"
+                  : "text-gray-500  cursor-pointer hover:bg-gray-500 hover:text-white"
+              } flex items-center h-8  mx-1 px-4  text-sm   bg-white rounded-sm border border-gray-300  hover:text-gray-700 `}
+            >
+              {index}
+            </p>
+          ))}
+
+          {/* Double Next */}
+          <p
+            onClick={paginationHandler.handleDoubleNext}
+            className={`cursor-pointer ${
+              page === lastPage ? "hidden" : "flex items-center"
+            } h-8  mx-1 px-4  text-sm  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-gray-500 hover:text-white `}
+          >
+            ..
+          </p>
+          {/* Next Button */}
+          <p
+            onClick={paginationHandler.handleNext}
+            className={`cursor-pointer ${
+              page > lastPage - 1 ? "hidden" : "flex"
+            }  items-center h-8  mx-3 px-4  text-xs  text-gray-500 bg-white rounded-sm border border-gray-300 hover:bg-green-800 hover:text-white `}
+          >
+            {t("home.next")}
+          </p>
+        </div>
       </div>
     </div>
   );
