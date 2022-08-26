@@ -75,7 +75,7 @@ export default function Home() {
   }, [page]);
 
   return (
-    <div className="md:mt-28 md:pt-4 ">
+    <div className="md:mt-28 md:pt-4 pb-10">
       <div
         style={{
           backgroundImage:
@@ -88,7 +88,7 @@ export default function Home() {
       </div>
       <div className="w-full  flex flex-col bg-white  ">
         <Posts posts={posts} />
-        <div className="flex justify-center items-center ">
+        <div className="flex justify-center items-center pt-10">
           {/*  Previous Button */}
           <p
             onClick={paginationHandler.handlePrev}
