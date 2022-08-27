@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar";
 import Profile from "../components/Profile";
 import UserPhotos from "../components/UserPhotos";
 import UserLikes from "../components/UserLikes";
+import Loading from "../components/Loading";
+
 export default function UserProfile() {
   const username = useParams("username");
   const location = useLocation();
@@ -28,55 +30,63 @@ export default function UserProfile() {
         setUser(response.data);
         setProfileImage(response.data.profile_image.large);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        setUser(null);
       });
   }, [username]);
 
   if (!user) {
-    return "Loading...";
+    return "User Not found";
   }
   return (
-    <div>
-      <Navbar />
-      <div className=" md:mt-16  bg-white flex flex-col   w-full text-xl ">
-        <Profile user={user} profileImage={profileImage} />
-        <div className="w-full pb-20  bg-white divide-y ">
-          <div className=" flex">
-            <Link
-              to={`/@${username.username}`}
-              className={`mx-3 px-3 pb-3 ${
-                location.pathname === `/@${username.username}`
-                  ? "border-b-2 border-black text-black"
-                  : "text-gray-500"
-              }  hover:text-black  cursor-pointer `}
-            >
-              Photos
-            </Link>
+    <>
+      {user.profile_image ? (
+        <div>
+          <Navbar />
+          <div className=" md:mt-16  bg-white flex flex-col   w-full text-xl ">
+            <Profile user={user} profileImage={profileImage} />
+            <div className="w-full pb-20  bg-white divide-y ">
+              <div className=" flex">
+                <Link
+                  to={`/@${username.username}`}
+                  className={`mx-3 px-3 pb-3 ${
+                    location.pathname === `/@${username.username}`
+                      ? "border-b-2 border-black text-black"
+                      : "text-gray-500"
+                  }  hover:text-black  cursor-pointer `}
+                >
+                  Photos
+                </Link>
 
-            <Link
-              to={`/@${username.username}/likes`}
-              className={`xs:mx-20 md:mx-36 px-3 cursor-pointer ${
-                location.pathname === `/@${username.username}/likes`
-                  ? "border-b-2 border-black text-black"
-                  : "text-gray-500"
-              } hover:text-black`}
-            >
-              Likes
-            </Link>
+                <Link
+                  to={`/@${username.username}/likes`}
+                  className={`xs:mx-20 md:mx-36 px-3 cursor-pointer ${
+                    location.pathname === `/@${username.username}/likes`
+                      ? "border-b-2 border-black text-black"
+                      : "text-gray-500"
+                  } hover:text-black`}
+                >
+                  Likes
+                </Link>
+              </div>
+              <Routes>
+                <Route
+                  path="/"
+                  element={<UserPhotos username={username.username} />}
+                />
+                <Route
+                  path={`/likes`}
+                  element={<UserLikes username={username.username} />}
+                />
+              </Routes>
+            </div>
           </div>
-          <Routes>
-            <Route
-              path="/"
-              element={<UserPhotos username={username.username} />}
-            />
-            <Route
-              path={`/likes`}
-              element={<UserLikes username={username.username} />}
-            />
-          </Routes>
         </div>
-      </div>
-    </div>
+      ) : (
+        <div className={"block w-full h-screen "}>
+          <Loading />
+        </div>
+      )}
+    </>
   );
 }
