@@ -4,7 +4,7 @@ export default function Loading() {
   return (
     <div className="BarLoader flex h-screen items-center">
       <FadeLoader
-        color={"#fff"}
+        color={"#000"}
         loading={true}
         height={20}
         width={7}
