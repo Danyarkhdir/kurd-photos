@@ -4,14 +4,15 @@ import { useSelector } from "react-redux";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MainLayout from "./layouts/MainLayout";
-import CategoryScrollMenu from "./components/CategoryScrollMenu";
+
 import Home from "./pages/Home";
+import UserProfile from "./pages/UserProfile";
 function App() {
   const language = useSelector((state) => state.language.lang);
   const currentFont = useSelector((state) => state.language.font);
   return (
     <div
-      className={`bg-primary-500 w-full  h-screen ${
+      className={`bg-white w-full  h-screen ${
         currentFont === "cairo"
           ? "font-cairo"
           : currentFont === "alice"
@@ -26,13 +27,13 @@ function App() {
           element={
             <>
               <MainLayout />
-              <CategoryScrollMenu />
               <Home />
             </>
           }
         />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
+        <Route path="/@:username/*" element={<UserProfile />} />
       </Routes>
     </div>
   );
