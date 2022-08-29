@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <>
       <div className=" w-full xs:relative md:fixed top-0 left-0 z-40 overflow-hidden  ">
-        <div className="md:flex md:items-center justify-between bg-primary-400 xs:pt-4 xs:pb-0 md:py-4 md:px-10 px-7">
+        <div className="md:flex md:items-center justify-between bg-primary-400 xs:pb-4 xs:pt-4 md:py-4 md:px-10 px-7">
           <div className="font-bold text-2xl  flex justify-between items-center bg-primary-400 ">
             {/* left side of navbar */}
             <div className="text-3xl flex items-center   text-white  ">
