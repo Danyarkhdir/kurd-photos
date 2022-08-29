@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Images from "./Images";
+import Gallery from "./Gallery";
 
 export default function UserLikes({ username }) {
   const [userLiked, setUserLiked] = useState([]);
@@ -22,5 +22,9 @@ export default function UserLikes({ username }) {
       });
   }, [username]);
 
-  return <Images images={userLiked} />;
+  return (
+    <div>
+      <Gallery images={userLiked} />
+    </div>
+  );
 }

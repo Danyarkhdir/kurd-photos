@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Images from "../components/Images";
+import Gallery from "../components/Gallery";
 import Loading from "../components/Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CategoryScrollMenu from "../components/CategoryScrollMenu";
@@ -37,8 +37,10 @@ export default function Home() {
           }}
           className="flex items-start  px-10 flex-col justify-center w-full xs:h-[400px]  lg:h-[600px] bg-cover bg-white"
         >
-          <p className="text-9xl text-white ">KrPics</p>
-          <p className="text-xl text-white ">{t("home.title")}</p>
+          <p className="xs:text-7xl sm:text-8xl md:text-9xl text-white ">
+            KrPics
+          </p>
+          <p className="xs:text-lg sm:text-xl text-white ">{t("home.title")}</p>
         </div>
         <div className="w-full   bg-white  ">
           <InfiniteScroll
@@ -47,7 +49,7 @@ export default function Home() {
             hasMore={true}
             loader={<Loading />}
           >
-            <Images images={images} />
+            <Gallery images={images} />
           </InfiniteScroll>
         </div>
       </div>

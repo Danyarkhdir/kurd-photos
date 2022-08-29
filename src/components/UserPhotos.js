@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Images from "./Images";
+import Gallery from "./Gallery";
 export default function UserPhotos({ username }) {
   const [userPhotos, setUserPhotos] = useState([]);
 
@@ -21,5 +21,9 @@ export default function UserPhotos({ username }) {
       });
   }, [username]);
 
-  return <Images images={userPhotos} />;
+  return (
+    <div>
+      <Gallery images={userPhotos} />
+    </div>
+  );
 }
