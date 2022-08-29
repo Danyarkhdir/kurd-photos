@@ -50,6 +50,7 @@
     -moz-column-width: 100%;
     column-width: 100%;
   }
+
   .userProfileLabel {
     display: block;
   }
@@ -65,6 +66,8 @@
   .likeTab-1 {
     display: flex;
     padding-top: 5px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
+    border-top-width: 0px;
+    border-bottom-width: 1px;
   }
 }
