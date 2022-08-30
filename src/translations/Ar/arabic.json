@@ -49,5 +49,10 @@
   "userProfile": {
     "photos": "الصور",
     "likes": "المحبوبين"
+  },
+  "searched": {
+    "resultsFor": "نتائج لـ ",
+    "photos": "الصور",
+    "users": "المستخدمين"
   }
 }

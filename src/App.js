@@ -7,6 +7,7 @@ import MainLayout from "./layouts/MainLayout";
 
 import Home from "./pages/Home";
 import UserProfile from "./pages/UserProfile";
+import Searched from "./pages/Searched";
 function App() {
   const language = useSelector((state) => state.language.lang);
   const currentFont = useSelector((state) => state.language.font);
@@ -34,6 +35,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
         <Route path="/@:username/*" element={<UserProfile />} />
+        <Route path="/search=:searched/*" element={<Searched />} />
       </Routes>
     </div>
   );

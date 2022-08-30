@@ -17,7 +17,6 @@ export default function Home() {
     axios
       .get(`${apiRoot}/photos/random?client_id=${accessKey}&count=${count}`)
       .then((response) => {
-        console.log("runned");
         setImages([...response.data, ...images]);
       })
       .catch((error) => {

@@ -49,5 +49,10 @@
   "userProfile": {
     "photos": "وێنەکان",
     "likes": "لایکەکان"
+  },
+  "searched": {
+    "resultsFor": "ئەنجامەکان بۆ ",
+    "photos": "وێنەکان",
+    "users": "بەکارهێنەران"
   }
 }

@@ -49,5 +49,10 @@
   "userProfile": {
     "photos": "Photos",
     "likes": "Likes"
+  },
+  "searched": {
+    "resultsFor": "Results for ",
+    "photos": "Photos",
+    "users": "Users"
   }
 }
