@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Gallery from "../components/Gallery";
 import Loading from "../components/Loading";
@@ -8,9 +8,6 @@ import CategoryScrollMenu from "../components/CategoryScrollMenu";
 export default function Home() {
   const { t } = useTranslation("common");
   const [images, setImages] = useState([]);
-  useEffect(() => {
-    fetchMore();
-  }, []);
 
   const fetchMore = (count = 30) => {
     const apiRoot = "https://api.unsplash.com";
