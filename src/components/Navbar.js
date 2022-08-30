@@ -5,10 +5,11 @@ import { showModal } from "../features/modal/profileSlice";
 import ProfileModal from "./ProfileModal";
 import LanguageDropdown from "./LanguageDropdown";
 import { useTranslation } from "react-i18next";
+import MdSearchBar from "./MdSearchBar";
+import SmSearchBar from "./SmSearchBar";
 export default function Navbar() {
   const { t } = useTranslation("common");
   const auth = useSelector((state) => state.auth.isAuthenticated);
-
   const dispatch = useDispatch();
 
   return (
@@ -19,11 +20,11 @@ export default function Navbar() {
             {/* left side of navbar */}
             <div className="text-3xl flex items-center   text-white  ">
               <MdCamera />
-              <span className="font-extraBold text-white px-1  fontFamily-nunito">
+              <span className="font-extraBold xs:hidden md:block text-white px-1  fontFamily-nunito">
                 KrPics
               </span>
             </div>
-
+            <SmSearchBar />
             {/* right side of navbar */}
             <div className=" text-white  md:hidden flex items-center">
               {auth ? (
@@ -44,7 +45,7 @@ export default function Navbar() {
               <LanguageDropdown />
             </div>
           </div>
-
+          <MdSearchBar />
           <ul
             className={`md:flex md:items-center overflow-hidden  xs:hidden  md:pb-0 pb-12 absolute md:static bg-primary-400 md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0  transition-all duration-500 `}
           >

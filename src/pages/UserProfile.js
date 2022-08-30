@@ -6,13 +6,14 @@ import Profile from "../components/Profile";
 import UserPhotos from "../components/UserPhotos";
 import UserLikes from "../components/UserLikes";
 import Loading from "../components/Loading";
+import { useTranslation } from "react-i18next";
 
 export default function UserProfile() {
+  const { t } = useTranslation("common");
   const username = useParams("username");
   const location = useLocation();
   const [user, setUser] = useState([]);
   const [profileImage, setProfileImage] = useState("");
-  console.log(location);
 
   // on first render scroll to the top of window
   useEffect(() => {
@@ -55,7 +56,7 @@ export default function UserProfile() {
                       : "text-gray-500"
                   }  hover:text-black  cursor-pointer `}
                 >
-                  Photos
+                  {t("userProfile.photos")}
                 </Link>
 
                 <Link
@@ -66,7 +67,7 @@ export default function UserProfile() {
                       : "text-gray-500"
                   } hover:text-black`}
                 >
-                  Likes
+                  {t("userProfile.likes")}
                 </Link>
               </div>
               <Routes>

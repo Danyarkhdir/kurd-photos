@@ -30,7 +30,9 @@
   "navbar": {
     "explore": "عام",
     "login": "تسجيل الدخول",
-    "getStarted": "ابدأ"
+    "getStarted": "ابدأ",
+    "searchPlaceHolder": "ابحث عن صورة",
+    "search": "بحث"
   },
   "profileModal": {
     "explore": "عام",
@@ -43,5 +45,9 @@
     "title": "مصدر الإنترنت للصور القابلة للاستخدام بحرية. مدعوم من المبدعين في كل مكان.",
     "next": "التالي",
     "previous": "السابق"
+  },
+  "userProfile": {
+    "photos": "الصور",
+    "likes": "المحبوبين"
   }
 }

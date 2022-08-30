@@ -30,7 +30,9 @@
   "navbar": {
     "explore": "Explore",
     "login": "Login",
-    "getStarted": "Get Started"
+    "getStarted": "Get Started",
+    "searchPlaceHolder": "Search free photos",
+    "search": "Search"
   },
   "profileModal": {
     "explore": "Explore",
@@ -43,5 +45,9 @@
     "title": "The internet’s source of freely-usable images. Powered by creators everywhere.",
     "next": "Next",
     "previous": "Previous"
+  },
+  "userProfile": {
+    "photos": "Photos",
+    "likes": "Likes"
   }
 }

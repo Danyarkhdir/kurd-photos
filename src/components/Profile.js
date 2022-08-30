@@ -20,16 +20,17 @@ export default function Profile({ user, profileImage }) {
         )}
       </div>
       <div className="md:w-2/4  pt-14 px-1 flex flex-col">
-        <div className="flex items-center ">
-          <span className="xs:text-2xl sm:text-3xl md:text-2xl lg:text-3xl font-bold">
+        <div className="flex items-center justify-between  ">
+          <span className="xs:text-2xl sm:text-3xl md:text-2xl xl:text-3xl font-bold">
             {user.name}
           </span>
           {followed ? (
             <span
               onClick={handleFollow}
-              className="inline-flex items-center rounded-md border border-gray-500 hover:border-black p-1 mx-20 px-4  "
+              className="flex items-center xs:mx-10 sm:mx-20 self-end rounded-md border border-gray-500 hover:border-black p-1  px-4  "
             >
               <RiUserFollowFill
+                title="Unfollow"
                 className="text-gray-500 hover:text-black"
                 size={25}
               />
@@ -37,9 +38,10 @@ export default function Profile({ user, profileImage }) {
           ) : (
             <span
               onClick={handleFollow}
-              className="inline-flex items-center rounded-md border border-gray-500 hover:border-black p-1 mx-20 px-4  "
+              className="flex items-center xs:mx-10 sm:mx-20 md:mx-10 self-end rounded-md border border-gray-500 hover:border-black p-1  px-4  "
             >
               <RiUserAddFill
+                title="Follow"
                 className="text-gray-500 hover:text-black"
                 size={25}
               />
