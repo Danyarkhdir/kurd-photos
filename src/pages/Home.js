@@ -9,20 +9,26 @@ export default function Home() {
   const { t } = useTranslation("common");
   const [images, setImages] = useState([]);
 
-  const fetchMore = (count = 30) => {
+  // fetch images randomly from unsplash api
+  function fetchMore(count = 30) {
     const apiRoot = "https://api.unsplash.com";
     const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
 
     axios
       .get(`${apiRoot}/photos/random?client_id=${accessKey}&count=${count}`)
       .then((response) => {
-        setImages([...images, ...response.data]);
+        console.log("runned");
+        setImages([...response.data, ...images]);
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+  }
 
+  if (images.length === 0) {
+    window.scrollTo(0, 0);
+    fetchMore();
+  }
   return (
     <>
       <CategoryScrollMenu />
@@ -42,7 +48,7 @@ export default function Home() {
         <div className="w-full   bg-white  ">
           <InfiniteScroll
             dataLength={images.length}
-            next={fetchMore}
+            next={() => fetchMore()}
             hasMore={true}
             loader={<Loading />}
           >

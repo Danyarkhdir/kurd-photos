@@ -7,6 +7,9 @@
   column-width: 33%;
   -webkit-column-break-after: column;
 }
+.loader {
+  display: none;
+}
 .userProfileLabel {
   display: none;
 }
@@ -69,5 +72,8 @@
     padding-bottom: 10px;
     border-top-width: 0px;
     border-bottom-width: 1px;
+  }
+  .loader {
+    display: block;
   }
 }
