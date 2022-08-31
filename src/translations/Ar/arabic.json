@@ -54,5 +54,8 @@
     "resultsFor": "نتائج لـ ",
     "photos": "الصور",
     "users": "المستخدمين"
+  },
+  "userCard": {
+    "viewProfile": "عرض الملف الشخصي"
   }
 }

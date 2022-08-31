@@ -54,5 +54,8 @@
     "resultsFor": "Results for ",
     "photos": "Photos",
     "users": "Users"
+  },
+  "userCard": {
+    "viewProfile": "View profile"
   }
 }
