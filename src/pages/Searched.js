@@ -19,9 +19,9 @@ export default function Searched() {
         <div className="border-b border-gray-300">
           <Link
             to="photos"
-            className={`inline-flex pb-2  hover:text-black font-bold text-xl mx-2 px-2  mt-10 ${
+            className={`inline-flex pb-2  hover:text-white font-bold text-xl mx-2 px-2  mt-10 ${
               pathname === "/search=" + searched + "/photos"
-                ? "text-black border-b-2 border-black"
+                ? "text-white border-b-2 border-white"
                 : " text-gray-400"
             } `}
           >
@@ -29,9 +29,9 @@ export default function Searched() {
           </Link>
           <Link
             to="users"
-            className={`inline-flex pb-2 hover:text-black font-bold text-xl mx-2 px-2  mt-10 ${
+            className={`inline-flex pb-2 hover:text-white font-bold text-xl mx-2 px-2  mt-10 ${
               pathname === "/search=" + searched + "/users"
-                ? "text-black border-b-2 border-black"
+                ? "text-white border-b-2 border-white"
                 : " text-gray-400"
             } `}
           >

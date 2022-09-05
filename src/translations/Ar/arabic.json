@@ -1,4 +1,5 @@
 {
+  "lang": "العربية",
   "register": {
     "create": "التسجيل",
     "welcome": "مرحبا بكم في KrPics",
@@ -28,9 +29,12 @@
     "ku": "كردي"
   },
   "navbar": {
-    "explore": "عام",
-    "login": "تسجيل الدخول",
-    "getStarted": "ابدأ",
+    "ar": "العربية",
+    "en": "الإنجليزية",
+    "ku": "كردي",
+    "changeLang": "تغيير اللغة",
+    "profile": "الملف الشخصي",
+    "logout": "تسجيل الخروج",
     "searchPlaceHolder": "ابحث عن صورة",
     "search": "بحث"
   },

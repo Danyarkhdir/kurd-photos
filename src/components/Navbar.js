@@ -1,85 +1,146 @@
-import { MdCamera } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux/es/exports";
-import { showModal } from "../features/modal/profileSlice";
-import ProfileModal from "./ProfileModal";
-import LanguageDropdown from "./LanguageDropdown";
+import { BiSearchAlt } from "react-icons/bi";
+import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
-import MdSearchBar from "./MdSearchBar";
-import SmSearchBar from "./SmSearchBar";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { setLang } from "../features/user/langSlice";
+import { logout } from "../features/user/authSlice";
 export default function Navbar() {
-  const { t } = useTranslation("common");
-  const auth = useSelector((state) => state.auth.isAuthenticated);
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
+  const [searched, setSearched] = useState("");
+  const lang = useSelector((state) => state.language.lang);
+  const { t, i18n } = useTranslation("common");
+  const languages = [
+    {
+      name: t("navbar.en"),
+      abbr: "en",
+      icon: "https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/united-states-flag-icon.png",
+      current: lang === "en",
+      font: "lato",
+      alt: "English flag",
+    },
+    {
+      name: t("navbar.ku"),
+      abbr: "ku",
+      icon: "https://upload.wikimedia.org/wikipedia/commons/d/d2/Flag_of_Kurdistan.png",
+      current: lang === "ku",
+      font: "alice",
+      alt: "Kurdish flag",
+    },
+    {
+      name: t("navbar.ar"),
+      abbr: "ar",
+      icon: "https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/saudi-arabia-flag-icon.png",
+      current: lang === "ar",
+      font: "cairo",
+      alt: "Arabic flag",
+    },
+  ];
+  const [language, setLanguage] = useState(languages);
+  function changeLanguage(lang) {
+    setLanguage(
+      language.map((langs) => {
+        langs.abbr === lang ? (langs.current = true) : (langs.current = false);
+        return langs;
+      })
+    );
+  }
   return (
-    <>
-      <div className=" w-full xs:relative md:fixed top-0 left-0 z-40 overflow-hidden  ">
-        <div className="md:flex md:items-center justify-between bg-primary-400 xs:pb-4 xs:pt-4  md:py-4 md:px-10 px-7">
-          <div className="font-bold text-2xl  flex justify-between items-center bg-primary-400 ">
-            {/* left side of navbar */}
-            <div className="text-3xl flex items-center   text-white  ">
-              <MdCamera />
-              <span className="font-extraBold xs:hidden md:block text-white px-1  fontFamily-nunito">
-                KrPics
-              </span>
+    <div className="navbar md:fixed top-0 z-50 bg-base-100 ">
+      <div className="flex-1">
+        <Link to="" className="btn btn-ghost normal-case text-xl">
+          KrPics
+        </Link>
+      </div>
+      <form
+        className="form-control  flex-1 "
+        onSubmit={(e) => {
+          e.preventDefault();
+          navigate(`/search=${searched}/photos`);
+        }}
+      >
+        <div className="flex w-full input-bordered input items-center">
+          <Link to={`/search=${searched}/photos`}>
+            <BiSearchAlt size={22} className="cursor-pointer" />
+          </Link>
+          <input
+            onChange={(e) => {
+              setSearched(e.target.value);
+            }}
+            type="text"
+            placeholder={t("navbar.search")}
+            className="bg-transparent outline-none text-xl mx-2 w-full"
+          />
+        </div>
+      </form>
+      <div className="flex-1 justify-end gap-2">
+        <div className="dropdown dropdown-end">
+          <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+              <img src="https://placeimg.com/80/80/people" alt="user" />
             </div>
-            <SmSearchBar />
-            {/* right side of navbar */}
-            <div className=" text-white  md:hidden flex items-center">
-              {auth ? (
-                <img
-                  onClick={() => dispatch(showModal())}
-                  src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=50&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1MDkyNTA1OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=50"
-                  className=" rounded-full h-9 w-9 cursor-pointer  "
-                  alt="user"
-                />
-              ) : (
-                <img
-                  onClick={() => dispatch(showModal())}
-                  src="https://goodsamjc.org/wp-content/uploads/2020/01/16196015_10154888128487744_6901111466535510271_n.png"
-                  className="rounded-full h-9 w-9 cursor-pointer  "
-                  alt="user"
-                />
-              )}
-              <LanguageDropdown />
-            </div>
-          </div>
-          <MdSearchBar />
+          </label>
           <ul
-            className={`md:flex md:items-center overflow-hidden  xs:hidden  md:pb-0 pb-12 absolute md:static bg-primary-400 md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0  transition-all duration-500 `}
+            tabIndex="0"
+            className={`mt-3 p-2 shadow   menu menu-compact dropdown-content ${
+              lang === "en" ? "" : "!fixed left-2"
+            }  bg-base-100 rounded-box w-52`}
           >
-            {auth ? (
-              <>
-                <img
-                  onClick={() => dispatch(showModal())}
-                  src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=50&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTY1MDkyNTA1OA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=50"
-                  className="cursor-pointer mx-4 rounded-full xs:hidden md:block h-9 w-9  "
-                  alt="user"
-                />
-                <LanguageDropdown />
-              </>
-            ) : (
-              <>
-                <Link
-                  to="/login"
-                  className="bg-sky-800 mx-2 text-white font-bold  py-2 px-6 rounded  hover:bg-sky-600 duration-500"
-                >
-                  {t("navbar.login")}
-                </Link>
-                <Link
-                  to="register"
-                  className="bg-green-600  text-white font-bold  py-2 px-6 rounded mx-2 hover:bg-green-700"
-                >
-                  {t("navbar.getStarted")}
-                </Link>
-                <LanguageDropdown />
-              </>
-            )}
+            <li>
+              <Link to="" className="justify-between text-base">
+                {t("navbar.profile")}
+              </Link>
+            </li>
+            <div className="collapse ">
+              <input className="" type="checkbox" />
+              <div className=" collapse-title  text-base !px-4">
+                {t("navbar.changeLang")}
+              </div>
+              <div className="collapse-content">
+                {languages.map((lang) => {
+                  return (
+                    <div
+                      onClick={() => {
+                        changeLanguage(lang.abbr);
+                        i18n.changeLanguage(lang.abbr);
+                        dispatch(
+                          setLang({
+                            lang: lang.abbr,
+                            font: lang.font,
+                          })
+                        );
+                      }}
+                      key={lang.name}
+                      className={`flex items-center ${
+                        lang.current ? "bg-base-300" : "bg-base-100"
+                      } gap-3 hover:bg-base-200 px-2 cursor-pointer`}
+                    >
+                      <img
+                        src={lang.icon}
+                        alt={lang.alt}
+                        width={25}
+                        height={25}
+                      />{" "}
+                      {lang.name}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <li>
+              <Link
+                onClick={() => dispatch(logout())}
+                to="/"
+                className="text-base"
+              >
+                {t("navbar.logout")}
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
-      <ProfileModal />
-    </>
+    </div>
   );
 }

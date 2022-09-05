@@ -6,7 +6,7 @@ export default function Register() {
   const { t } = useTranslation("common");
   const navigate = useNavigate();
   return (
-    <div className="md:flex  divide-x divide-gray-500 bg-primary-500 h-fit">
+    <div className="md:flex  divide-x divide-gray-500 bg-base-100 h-fit">
       <div className="md:w-4/12 xl:w-5/12  h-64 bg-center  bg-black    md:h-screen  bg-cover bg-no-repeat bg-[url('https://images.unsplash.com/photo-1627987469780-fc77d8c9a586?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')]">
         <div className="px-2 py-4 md:px-6 md:py-6 lg:px-8  lg:py-8 xl:px-12 xl:py-10  ">
           <MdCamera size={"50px"} color={"white"} />
@@ -18,14 +18,14 @@ export default function Register() {
 
       <div className="md:w-8/12 xl:w-7/12 h-screen mx-auto  md:overflow-y-scroll ">
         <div className="md:w-7/12 h-screen  mx-auto ">
-          <div className="text-black  p-1 flex flex-col items-center">
+          <div className="text-white  p-1 flex flex-col items-center">
             <h1 className="text-5xl font-extrabold mt-20 lg:mt-20">
               {t("register.create")}
             </h1>
             <h3 className="mt-6  text-l ">
               {t("register.title")}
               <Link
-                className="underline  text-gray-600 hover:text-black"
+                className="underline  text-gray-600 hover:text-white"
                 to="/login"
               >
                 {t("register.login")}
@@ -40,11 +40,11 @@ export default function Register() {
               e.preventDefault();
               navigate("/login", { replace: true });
             }}
-            className="p-2 mt-7 pb-20 w-full flex flex-col bg-primary-500"
+            className="p-2 mt-7 pb-20 w-full flex flex-col bg-base-100"
             autoComplete="off"
           >
             <label className="text-xl" htmlFor="username">
-              <span className="text-xl after:content-['*'] after:ml-0.5 after:text-red-500 block  text-black">
+              <span className="text-xl after:content-['*'] after:ml-0.5 after:text-red-500 block  text-white">
                 {t("register.username")}
               </span>
             </label>
@@ -56,7 +56,7 @@ export default function Register() {
               placeholder={t("register.username")}
             />
             <label className="text-xl mt-6" htmlFor="email">
-              <span className="text-xl after:content-['*'] after:ml-0.5 after:text-red-500 block  text-black">
+              <span className="text-xl after:content-['*'] after:ml-0.5 after:text-red-500 block  text-white">
                 {t("register.email")}
               </span>
             </label>
@@ -69,7 +69,7 @@ export default function Register() {
               placeholder="example@example.com"
             />
             <label className="text-xl mt-6" htmlFor="password">
-              <span className="text-xl after:content-['*'] after:ml-0.5 after:text-red-500 block  text-black">
+              <span className="text-xl after:content-['*'] after:ml-0.5 after:text-red-500 block  text-white">
                 {t("register.password")}
               </span>
             </label>

@@ -44,17 +44,17 @@ export default function UserProfile() {
       {user.profile_image ? (
         <div>
           <Navbar />
-          <div className=" md:mt-16  bg-white flex flex-col   w-full text-xl ">
+          <div className=" md:mt-16  bg-base-100 flex flex-col   w-full text-xl ">
             <Profile user={user} profileImage={profileImage} />
-            <div className="w-full pb-20  bg-white divide-y ">
+            <div className="w-full pb-20  bg-base-100 divide-y ">
               <div className=" flex">
                 <Link
                   to={`/@${username.username}`}
                   className={`mx-3 px-3 pb-3 ${
                     location.pathname === `/@${username.username}`
-                      ? "border-b-2 border-black text-black"
+                      ? "border-b-2 border-white text-white"
                       : "text-gray-500"
-                  }  hover:text-black  cursor-pointer `}
+                  }  hover:text-white  cursor-pointer `}
                 >
                   {t("userProfile.photos")}
                 </Link>
@@ -63,9 +63,9 @@ export default function UserProfile() {
                   to={`/@${username.username}/likes`}
                   className={`xs:mx-20 md:mx-36 px-3 cursor-pointer ${
                     location.pathname === `/@${username.username}/likes`
-                      ? "border-b-2 border-black text-black"
+                      ? "border-b-2 border-white text-white"
                       : "text-gray-500"
-                  } hover:text-black`}
+                  } hover:text-white`}
                 >
                   {t("userProfile.likes")}
                 </Link>

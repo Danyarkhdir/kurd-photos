@@ -37,7 +37,7 @@ export default function UserCard({ user }) {
               >
                 <RiUserFollowFill
                   title="Unfollow"
-                  className="text-gray-500 hover:text-black"
+                  className="text-gray-500 hover:text-white"
                   size={25}
                 />
               </span>
@@ -48,7 +48,7 @@ export default function UserCard({ user }) {
               >
                 <RiUserAddFill
                   title="Follow"
-                  className="text-gray-500 hover:text-black"
+                  className="text-gray-500 hover:text-white"
                   size={25}
                 />
               </span>
@@ -70,7 +70,7 @@ export default function UserCard({ user }) {
         </div>
 
         <Link
-          className="block w-full text-center mt-4 text-gray-400 hover:text-black hover:border-black border py-1 border-gray-400 rounded"
+          className="block w-full text-center mt-4 text-gray-400 hover:text-white hover:border-white border py-1 border-gray-400 rounded"
           to={`/@${user.username}`}
         >
           {t("userCard.viewProfile")}

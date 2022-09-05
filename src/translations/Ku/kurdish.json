@@ -1,4 +1,5 @@
 {
+  "lang": "کوردی",
   "register": {
     "create": "تۆمارکردن",
     "welcome": "بەخێربێن بۆ KrPics",
@@ -28,9 +29,12 @@
     "ku": "کوردی"
   },
   "navbar": {
-    "explore": "گشتی",
-    "login": "چونه‌ ژووره‌وه‌",
-    "getStarted": "دەستپێکردن",
+    "ar": "عەرەبی",
+    "en": "ئینگلیزی",
+    "ku": "کوردی",
+    "changeLang": "گۆڕینی زمان",
+    "profile": "پەڕەی بەکارهێنەر",
+    "logout": "دەرچوون",
     "searchPlaceHolder": "گەڕان بۆ وێنە",
     "search": "گەڕان"
   },

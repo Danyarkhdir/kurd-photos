@@ -51,7 +51,7 @@ export default function CategoryScrollMenu() {
   };
 
   return (
-    <div className="md:fixed  md:top-16 md:pt-2 bg-primary-400 z-30 w-full ">
+    <div className="md:fixed  md:top-16 md:pt-2 bg-base-100 z-30 w-full ">
       <div className="relative flex items-center border-b border-black">
         {/* Explore */}
         {/* <h1>Danyar</h1> */}
@@ -80,10 +80,10 @@ export default function CategoryScrollMenu() {
                 id={item.id}
                 key={item.id}
                 onClick={() => handleClick(item.id)}
-                className={`xs:text-base xs:px-3 text-black md:text-2xl xs:py-3 md:px-10  md:py-3 active:text-white inline-block cursor-pointer
+                className={`xs:text-base xs:px-3 text-gray-300 md:text-2xl hover:text-white xs:py-3 md:px-10  md:py-3 active:text-white inline-block cursor-pointer
               ${
                 item.current &&
-                " xs:border-b-4 md:border-b-4 text-white border-black cursor-default"
+                " xs:border-b-4 md:border-b-4 text-white border-white cursor-default"
               }
               `}
               >

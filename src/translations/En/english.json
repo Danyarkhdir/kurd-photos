@@ -1,4 +1,5 @@
 {
+  "lang": "English",
   "register": {
     "create": "Registeration",
     "welcome": "Welcome to KrPics ",
@@ -28,8 +29,12 @@
     "ku": "Kurdish"
   },
   "navbar": {
-    "explore": "Explore",
-    "login": "Login",
+    "ar": "Arabic",
+    "en": "English",
+    "ku": "Kurdish",
+    "changeLang": "Change language",
+    "profile": "Profile",
+    "logout": "Logout",
     "getStarted": "Get Started",
     "searchPlaceHolder": "Search free photos",
     "search": "Search"

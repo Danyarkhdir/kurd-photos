@@ -27,7 +27,6 @@ export default function UserPhotos({ username }) {
           currentPage: currentPage + 1,
           userPhotosCurrentLength: userPhotos.length,
         });
-        console.log("currentLength", page.userPhotosCurrentLength);
       })
       .catch((error) => {
         console.log(error);
