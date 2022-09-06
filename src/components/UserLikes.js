@@ -28,13 +28,12 @@ export default function UserLikes({ username }) {
           currentPage: currentPage + 1,
           userLikedCurrentLength: userLiked.length,
         });
-        console.log("currentLength", page.userLikedCurrentLength);
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  if (userLiked.length === 0) {
+  if (page.currentPage === 1) {
     window.scrollTo(0, 0);
     fetchMore();
   }

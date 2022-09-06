@@ -80,10 +80,10 @@ export default function CategoryScrollMenu() {
                 id={item.id}
                 key={item.id}
                 onClick={() => handleClick(item.id)}
-                className={`xs:text-base xs:px-3 text-gray-300 md:text-2xl hover:text-white xs:py-3 md:px-10  md:py-3 active:text-white inline-block cursor-pointer
+                className={`xs:text-base xs:px-3 text-gray-400 md:text-2xl dark:hover:text-white hover:text-black xs:py-3 md:px-10  md:py-3 dark:active:text-white active:text-black inline-block cursor-pointer
               ${
                 item.current &&
-                " xs:border-b-4 md:border-b-4 text-white border-white cursor-default"
+                " xs:border-b-4 md:border-b-4 dark:text-white text-black dark:border-white border-black cursor-default"
               }
               `}
               >

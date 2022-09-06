@@ -21,14 +21,13 @@ export default function SearchPhoto({ searched }) {
           currentPage: currentPage + 1,
           totalPage: response.data.total_pages,
         });
-        console.log(response.data.total_pages);
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
-  if (images.length === 0) fetchMore(page.currentPage);
+  if (page.currentPage === 1) fetchMore(page.currentPage);
   return (
     <InfiniteScroll
       dataLength={images.length}

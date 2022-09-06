@@ -75,10 +75,10 @@ export default function Image({ imageInfo, index }) {
                   onClick={() => {
                     handleUserActions.handleLike();
                   }}
-                  className={`rounded-lg cursor-pointer mt-1  border p-1  ${
+                  className={`rounded-lg cursor-pointer mt-1   p-1  ${
                     isLiked
-                      ? "bg-red-600 border-red-600 hover:border-red-700 hover:bg-red-700 text-white"
-                      : " bg-white  text-gray-400 hover:text-gray-900 border-gray-400 hover:border-gray-500"
+                      ? "bg-red-600   hover:bg-red-500 text-white"
+                      : " bg-white dark:bg-black  text-gray-400 hover:text-gray-900 dark:hover:text-white "
                   }`}
                   size={35}
                 />
@@ -90,16 +90,16 @@ export default function Image({ imageInfo, index }) {
                   isSaved ? "Remove from favorites" : "Add to favorites"
                 }`}
                 onClick={() => handleUserActions.handleFavorite()}
-                className={`mx-3 mt-1 rounded-lg cursor-pointer p-1 border font-bold ${
+                className={`mx-3 mt-1 rounded-lg cursor-pointer p-1  font-bold ${
                   isSaved
-                    ? "bg-green-500  hover:bg-green-600 border-green-500  hover:border-green-600 text-white"
-                    : " bg-white   text-gray-400 hover:text-gray-900 border-gray-400 hover:border-gray-500"
+                    ? "bg-green-500  hover:bg-green-600 border-green-500  hover:border-green-600 dark:text-white text-black"
+                    : " dark:bg-black bg-white   text-gray-400 dark:hover:text-white  hover:text-black"
                 }`}
                 size={35}
               />
               <MdDownload
                 title="Download"
-                className=" rounded-lg mt-1 cursor-pointer bg-white p-1 border  text-gray-400 hover:text-gray-900 border-gray-400 hover:border-gray-500"
+                className=" rounded-lg mt-1 cursor-pointer bg-white dark:bg-black p-1  dark:hover:text-white hover:text-black text-gray-400 "
                 size={35}
               />
             </div>
@@ -113,10 +113,10 @@ export default function Image({ imageInfo, index }) {
                 onClick={() => {
                   handleUserActions.handleLike();
                 }}
-                className={`rounded-lg cursor-pointer mt-1  border p-1  ${
+                className={`rounded-lg cursor-pointer mt-1   p-1  ${
                   isLiked
-                    ? "bg-red-600 border-red-600 hover:border-red-700 hover:bg-red-700 text-white"
-                    : " bg-white  text-gray-400 hover:text-gray-900 border-gray-400 hover:border-gray-500"
+                    ? "bg-red-600 border-red-600 hover:border-red-700 hover:bg-red-70 dark:text-white text-black"
+                    : " bg-white  text-gray-400 hover:text-gray-900 "
                 }`}
                 size={35}
               />

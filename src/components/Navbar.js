@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { setLang } from "../features/user/langSlice";
 import { logout } from "../features/user/authSlice";
+import { MdCamera } from "react-icons/md";
 export default function Navbar() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -46,36 +47,41 @@ export default function Navbar() {
       })
     );
   }
+
+  function handleSearch(e) {
+    e.preventDefault();
+    if (searched) navigate(`/search=${searched}/photos`);
+  }
   return (
-    <div className="navbar md:fixed top-0 z-50 bg-base-100 ">
-      <div className="flex-1">
-        <Link to="" className="btn btn-ghost normal-case text-xl">
-          KrPics
+    <div className="navbar md:fixed top-0 z-50 bg-base-100  ">
+      <div className="">
+        <Link to="" className=" dark:text-white text-black  ">
+          <MdCamera size={"40px"} />
         </Link>
       </div>
       <form
-        className="form-control  flex-1 "
+        className="form-control  flex-1 xs:mx-3 md:mx-14  lg:mx-16 xl:mx-20"
         onSubmit={(e) => {
-          e.preventDefault();
-          navigate(`/search=${searched}/photos`);
+          handleSearch(e);
         }}
       >
-        <div className="flex w-full input-bordered input items-center">
-          <Link to={`/search=${searched}/photos`}>
+        <div className="flex w-full input-bordered input h-10  items-center px-4 rounded-3xl">
+          <div onClick={(e) => handleSearch(e)}>
             <BiSearchAlt size={22} className="cursor-pointer" />
-          </Link>
+          </div>
           <input
+            required={true}
             onChange={(e) => {
               setSearched(e.target.value);
             }}
             type="text"
             placeholder={t("navbar.search")}
-            className="bg-transparent outline-none text-xl mx-2 w-full"
+            className="bg-transparent outline-none xs:text-lg dark:text-white text-black  md:text-xl mx-2 w-full"
           />
         </div>
       </form>
-      <div className="flex-1 justify-end gap-2">
-        <div className="dropdown dropdown-end">
+      <div className=" justify-end gap-2 ">
+        <div className="dropdown dropdown-end ">
           <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
               <img src="https://placeimg.com/80/80/people" alt="user" />
@@ -83,7 +89,7 @@ export default function Navbar() {
           </label>
           <ul
             tabIndex="0"
-            className={`mt-3 p-2 shadow   menu menu-compact dropdown-content ${
+            className={`mt-3 p-2 shadow   menu menu-compact dropdown-content border dark:border-white border-black ${
               lang === "en" ? "" : "!fixed left-2"
             }  bg-base-100 rounded-box w-52`}
           >

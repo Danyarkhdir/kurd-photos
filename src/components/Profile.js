@@ -27,22 +27,22 @@ export default function Profile({ user, profileImage }) {
           {followed ? (
             <span
               onClick={handleFollow}
-              className="flex items-center xs:mx-10 sm:mx-20 self-end rounded-md border border-gray-500 hover:border-white p-1  px-4  "
+              className="flex items-center xs:mx-10 sm:mx-20 self-end rounded-md border border-gray-500 dark:hover:border-white hover:border-black p-1  px-4  "
             >
               <RiUserFollowFill
                 title="Unfollow"
-                className="text-gray-500 hover:text-white"
+                className="text-gray-500 dark:hover:text-white  hover:text-black"
                 size={25}
               />
             </span>
           ) : (
             <span
               onClick={handleFollow}
-              className="flex items-center xs:mx-10 sm:mx-20 self-end rounded-md border border-gray-500 hover:border-white p-1  px-4 "
+              className="flex items-center xs:mx-10 sm:mx-20 self-end rounded-md border border-gray-500 dark:hover:border-white hover:border-black p-1  px-4 "
             >
               <RiUserAddFill
                 title="Follow"
-                className="text-gray-500 hover:text-white"
+                className="text-gray-500 dark:hover:text-white hover:text-black"
                 size={25}
               />
             </span>

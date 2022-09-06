@@ -32,7 +32,7 @@ export default function UserPhotos({ username }) {
         console.log(error);
       });
   };
-  if (userPhotos.length === 0) {
+  if (page.currentPage === 1) {
     window.scrollTo(0, 0);
     fetchMore();
   }

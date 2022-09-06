@@ -10,22 +10,24 @@ export default function UserCard({ user }) {
     setFollowed(!followed);
   };
   return (
-    <div
-      onClick={() => {
-        navigate(`/@${user.username}`);
-      }}
-      className="border border-gray-400 hover:border-black rounded p-4 hover:cursor-pointer"
-    >
+    <div className="border border-gray-400 dark:hover:border-white hover:border-black rounded p-4 ">
       <div>
         <div className="flex items-center justify-between ">
-          <div className="flex items-center justify-between">
+          <div
+            onClick={() => {
+              navigate(`/@${user.username}`);
+            }}
+            className="flex items-center cursor-pointer justify-between"
+          >
             <img
               className="rounded-full"
               src={user.profile_image.medium}
               alt="user"
             />
             <div className="flex flex-col items-start justify-center mx-4">
-              <span className="font-bold text-xl">{user.name}</span>
+              <span className="font-bold text-xl dark:text-white text-black">
+                {user.name}
+              </span>
               <span className="text-gray-400 ">@{user.username}</span>
             </div>
           </div>
@@ -33,22 +35,22 @@ export default function UserCard({ user }) {
             {followed ? (
               <span
                 onClick={handleFollow}
-                className="flex items-center  self-end rounded-md border border-gray-500 hover:border-black  p-1  px-4  "
+                className="flex items-center  self-end rounded-md border border-gray-500 dark:hover:border-white hover:border-black  p-1  px-4  "
               >
                 <RiUserFollowFill
                   title="Unfollow"
-                  className="text-gray-500 hover:text-white"
+                  className="text-gray-500 dark:hover:text-white hover:text-black"
                   size={25}
                 />
               </span>
             ) : (
               <span
                 onClick={handleFollow}
-                className="flex items-center   self-end rounded-md border border-gray-500 hover:border-black p-1  px-4  "
+                className="flex items-center   self-end rounded-md border border-gray-500 dark:hover:border-white hover:border-black p-1  px-4  "
               >
                 <RiUserAddFill
                   title="Follow"
-                  className="text-gray-500 hover:text-white"
+                  className="text-gray-500 dark:hover:text-white hover:text-black"
                   size={25}
                 />
               </span>
@@ -56,21 +58,30 @@ export default function UserCard({ user }) {
           </div>
         </div>
         {/* user Photos */}
-        <div className="grid grid-cols-3 gap-2 mt-4">
-          {user.photos.map((photo) => {
-            return (
-              <img
-                className="object-cover h-[100px] w-full"
-                key={photo.id}
-                src={photo.urls.small}
-                alt="user uploaded"
-              />
-            );
-          })}
-        </div>
-
+        {user.photos.length !== 0 ? (
+          <div className="grid grid-cols-3 gap-2 mt-4">
+            {user.photos.map((photo) => {
+              return (
+                <img
+                  onClick={() => {
+                    navigate(`/@${user.username}`);
+                  }}
+                  className="object-cover h-[100px] w-full"
+                  key={photo.id}
+                  src={photo.urls.small}
+                  alt="user uploaded"
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <h2 className="h-[100px]  w-full flex items-center justify-center text-xl  ">
+            {" "}
+            No Posts yet
+          </h2>
+        )}
         <Link
-          className="block w-full text-center mt-4 text-gray-400 hover:text-white hover:border-white border py-1 border-gray-400 rounded"
+          className="block w-full text-center mt-4 text-gray-400 dark:hover:text-white hover:text-black dark:hover:border-white hover:border-black border py-1 border-gray-400 rounded"
           to={`/@${user.username}`}
         >
           {t("userCard.viewProfile")}

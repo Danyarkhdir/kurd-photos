@@ -13,15 +13,15 @@ export default function Searched() {
     <>
       <Navbar />
       <div className="xs:mt-2 md:mt-20  pb-10 ">
-        <h2 className="font-bold px-4 pt-2 text-3xl">
+        <h2 className="font-bold px-4 dark:text-white text-black pt-2 text-3xl">
           {t("searched.resultsFor")} '{searched}'
         </h2>
-        <div className="border-b border-gray-300">
+        <div className="border-b dark:border-white border-black">
           <Link
             to="photos"
-            className={`inline-flex pb-2  hover:text-white font-bold text-xl mx-2 px-2  mt-10 ${
+            className={`inline-flex pb-2  dark:hover:text-white hover:text-black font-bold text-xl mx-2 px-2  mt-10 ${
               pathname === "/search=" + searched + "/photos"
-                ? "text-white border-b-2 border-white"
+                ? "dark:text-white text-black border-b-2 dark:border-white border-black"
                 : " text-gray-400"
             } `}
           >
@@ -31,7 +31,7 @@ export default function Searched() {
             to="users"
             className={`inline-flex pb-2 hover:text-white font-bold text-xl mx-2 px-2  mt-10 ${
               pathname === "/search=" + searched + "/users"
-                ? "text-white border-b-2 border-white"
+                ? "dark:text-white text-black border-b-2 dark:border-white border-black"
                 : " text-gray-400"
             } `}
           >
