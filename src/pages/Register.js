@@ -6,7 +6,7 @@ export default function Register() {
   const { t } = useTranslation("common");
   const navigate = useNavigate();
   return (
-    <div className="md:flex  divide-x divide-gray-500 bg-base-100 h-fit">
+    <div className="md:flex   dark:bg-black bg-white h-fit">
       <div className="md:w-4/12 xl:w-5/12  h-64 bg-center  bg-black    md:h-screen  bg-cover bg-no-repeat bg-[url('https://images.unsplash.com/photo-1627987469780-fc77d8c9a586?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')]">
         <div className="px-2 py-4 md:px-6 md:py-6 lg:px-8  lg:py-8 xl:px-12 xl:py-10  ">
           <MdCamera size={"50px"} className="dark:text-black text-white" />
@@ -41,7 +41,7 @@ export default function Register() {
               e.preventDefault();
               navigate("/login", { replace: true });
             }}
-            className="p-2 mt-7 pb-20 w-full flex flex-col bg-base-100"
+            className="p-2 mt-7 pb-20 w-full flex flex-col dark:bg-black bg-white"
             autoComplete="off"
           >
             <label className="text-xl" htmlFor="username">
@@ -85,7 +85,7 @@ export default function Register() {
             <input
               type="submit"
               value={t("register.register")}
-              className="mt-6 bg-black text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
+              className="mt-6 bg-blue-500 text-white rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
             />
           </form>
         </div>

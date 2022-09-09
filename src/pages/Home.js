@@ -37,14 +37,14 @@ export default function Home() {
             backgroundImage:
               "url('https://images.unsplash.com/photo-1633647517075-3bdafbc7b68c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80')",
           }}
-          className="flex items-start  px-10 flex-col justify-center w-full xs:h-[400px]  lg:h-[600px] bg-cover bg-base-100"
+          className="flex items-start  px-10 flex-col justify-center w-full xs:h-[400px]  lg:h-[600px] bg-cover dark:bg-black bg-white"
         >
           <p className="xs:text-7xl sm:text-8xl md:text-9xl text-white ">
             KrPics
           </p>
           <p className="xs:text-lg sm:text-xl text-white ">{t("home.title")}</p>
         </div>
-        <div className="w-full   bg-base-100  ">
+        <div className="w-full   dark:bg-black bg-white">
           <InfiniteScroll
             dataLength={images.length}
             next={() => fetchMore()}

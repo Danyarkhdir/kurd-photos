@@ -11,10 +11,14 @@ import UserProfile from "./pages/UserProfile";
 import Searched from "./pages/Searched";
 function App() {
   const { t } = useTranslation("common");
+  const darkMode = useSelector((state) => state.darkMode).darkMode;
+  console.log(darkMode);
   const currentFont = useSelector((state) => state.language.font);
   return (
     <div
-      className={`bg-base-100 w-full  h-screen ${
+      className={`${
+        darkMode ? "dark" : ""
+      } dark:bg-black bg-white w-full  h-screen ${
         currentFont === "cairo"
           ? "font-cairo"
           : currentFont === "alice"

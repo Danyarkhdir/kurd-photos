@@ -22,7 +22,10 @@ export default function Image({ imageInfo, index }) {
         <Loading />
       </div>
       <div className={`${loaded ? "pics" : "hidden"}`}>
-        <Link to={`/@${imageInfo.user.username}`} className="userProfileLabel">
+        <Link
+          to={`/@${imageInfo.user.username}`}
+          className="userProfileLabel dark:text-white "
+        >
           <div className="inline-flex  items-center cursor-pointer ">
             <img
               className="rounded-full border  border-gray-500 mx-3"
@@ -55,7 +58,7 @@ export default function Image({ imageInfo, index }) {
                 src={imageInfo.user.profile_image.small}
                 alt="userImage"
               />
-              <span className="md:text-base text-white xs:text-lg lg:text-lg">
+              <span className="md:text-base  text-white xs:text-lg lg:text-lg">
                 {imageInfo.user.name}
               </span>
             </div>
@@ -92,7 +95,7 @@ export default function Image({ imageInfo, index }) {
                 onClick={() => handleUserActions.handleFavorite()}
                 className={`mx-3 mt-1 rounded-lg cursor-pointer p-1  font-bold ${
                   isSaved
-                    ? "bg-green-500  hover:bg-green-600 border-green-500  hover:border-green-600 dark:text-white text-black"
+                    ? "bg-green-500  hover:bg-green-600 border-green-500  hover:border-green-600 text-white"
                     : " dark:bg-black bg-white   text-gray-400 dark:hover:text-white  hover:text-black"
                 }`}
                 size={35}
@@ -113,9 +116,9 @@ export default function Image({ imageInfo, index }) {
                 onClick={() => {
                   handleUserActions.handleLike();
                 }}
-                className={`rounded-lg cursor-pointer mt-1   p-1  ${
+                className={`rounded-lg cursor-pointer mt-1  border p-1  ${
                   isLiked
-                    ? "bg-red-600 border-red-600 hover:border-red-700 hover:bg-red-70 dark:text-white text-black"
+                    ? "bg-red-600 border-red-600 hover:border-red-700 hover:bg-red-70  text-white"
                     : " bg-white  text-gray-400 hover:text-gray-900 "
                 }`}
                 size={35}

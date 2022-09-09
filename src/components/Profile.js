@@ -9,7 +9,7 @@ export default function Profile({ user, profileImage }) {
     setFollowed(!followed);
   };
   return (
-    <div className="bg-base-100 w-full xs:px-4 md:px-0  md:flex justify-center md:h-[350px] xs:h-[600px]">
+    <div className="dark:bg-black bg-white w-full xs:px-4 md:px-0  md:flex justify-center md:h-[350px] xs:h-[600px]">
       <div className="md:w-1/4 flex items-center pt-12 flex-col">
         {profileImage && (
           <img
@@ -21,7 +21,7 @@ export default function Profile({ user, profileImage }) {
       </div>
       <div className="md:w-2/4  pt-14 px-1 flex flex-col">
         <div className="flex items-center justify-between  ">
-          <span className="xs:text-2xl sm:text-3xl md:text-2xl xl:text-3xl font-bold">
+          <span className="xs:text-2xl sm:text-3xl md:text-2xl xl:text-3xl font-bold dark:text-white text-black">
             {user.name}
           </span>
           {followed ? (
@@ -50,9 +50,9 @@ export default function Profile({ user, profileImage }) {
         </div>
 
         {user.bio ? (
-          <p className="text-lg py-4">{user.bio}</p>
+          <p className="text-lg py-4 dark:text-white text-black">{user.bio}</p>
         ) : (
-          <p className="text-lg py-4">
+          <p className="text-lg py-4 dark:text-white text-black">
             Download free, beautiful high-quality photos curated by{" "}
             {user.first_name}.
           </p>

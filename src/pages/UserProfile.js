@@ -44,9 +44,9 @@ export default function UserProfile() {
       {user.profile_image ? (
         <div>
           <Navbar />
-          <div className=" md:mt-16  bg-base-100 flex flex-col   w-full text-xl ">
+          <div className=" md:mt-16  dark:bg-blackflex flex-col   w-full text-xl ">
             <Profile user={user} profileImage={profileImage} />
-            <div className="w-full pb-20  bg-base-100 divide-y dark:divide-white divide-black ">
+            <div className="w-full pb-20  dark:bg-black bg-white divide-y dark:divide-white divide-black ">
               <div className=" flex">
                 <Link
                   to={`/@${username.username}`}
