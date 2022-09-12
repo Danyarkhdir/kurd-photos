@@ -2,34 +2,36 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
-export default function CategoryScrollMenu() {
-  const [selected, setSelected] = useState();
+export default function Topics({ current }) {
+  const [topics, setTopics] = useState();
   const language = useSelector((state) => state.language.lang);
-  const url = "https://api.unsplash.com";
+  const { t } = useTranslation("common");
 
   // Fetching data from Unsplash API
   useEffect(() => {
+    const apiRoot = "https://api.unsplash.com";
+    const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
     axios
-      .get(
-        `${url}/collections?client_id=${process.env.REACT_APP_UNSPLASH_ACCESS_KEY}&per_page=30`
-      )
+      .get(`${apiRoot}/topics?client_id=${accessKey}&page=1&per_page=22`)
       .then((response) => {
-        const data = response.data.map((catg) => {
-          return { ...catg, current: false };
+        const data = response.data.map((tpc) => {
+          return { ...tpc, title: t(`topic.${tpc.slug}`), current: false };
         });
-        setSelected(data);
+        setTopics(data);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [language]);
 
   const handleClick = (id) => {
-    const newSelected = selected.map((item) => {
+    const newTopics = topics.map((item) => {
       const slider = document.getElementById("slider");
-      const selecedCategory = document.getElementById(id);
-      slider.scrollTo(selecedCategory);
+      const selectedTopic = document.getElementById(id);
+      slider.scrollTo(selectedTopic);
       //if item is that which clicked set it to ative
       if (item.id === id) {
         return { ...item, current: true };
@@ -37,16 +39,16 @@ export default function CategoryScrollMenu() {
       //other items which not active
       return { ...item, current: false };
     });
-    setSelected(newSelected);
+    setTopics(newTopics);
   };
 
   const slideLeft = () => {
-    var slider = document.getElementById("slider");
+    let slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft - 250;
   };
 
   const slideRight = () => {
-    var slider = document.getElementById("slider");
+    let slider = document.getElementById("slider");
     slider.scrollLeft = slider.scrollLeft + 250;
   };
 
@@ -69,26 +71,27 @@ export default function CategoryScrollMenu() {
           />
         )}
 
-        {/* Category Slider */}
+        {/* topics scroll menu */}
         <div
           id="slider"
           className="w-full h-12 xs:py-2 md:py-7 flex items-center overflow-x-scroll  whitespace-nowrap  scrollbar-hide overflow-y-hidden"
         >
-          {selected &&
-            selected.map((item) => (
-              <p
+          {topics &&
+            topics.map((item) => (
+              <Link
+                to={`/topic/${item.slug}`}
                 id={item.id}
                 key={item.id}
                 onClick={() => handleClick(item.id)}
                 className={`xs:text-base xs:px-3 text-gray-400 md:text-2xl dark:hover:text-white hover:text-black dark:active:text-white active:text-black xs:py-3 md:px-10  md:py-3  inline-block cursor-pointer
               ${
-                item.current &&
+                (item.current || item.slug === current) &&
                 " xs:border-b-4 md:border-b-4 dark:text-white text-black dark:border-white border-black cursor-default"
               }
               `}
               >
                 {item.title}
-              </p>
+              </Link>
             ))}
         </div>
         {language === "en" ? (

@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import Gallery from "../components/Gallery";
 import Loading from "../components/Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
-import CategoryScrollMenu from "../components/CategoryScrollMenu";
+import Topics from "../components/Topics";
+import MainLayout from "../layouts/MainLayout";
 export default function Home() {
   const { t } = useTranslation("common");
   const [images, setImages] = useState([]);
@@ -30,7 +31,8 @@ export default function Home() {
   }
   return (
     <>
-      <CategoryScrollMenu />
+      <MainLayout />
+      <Topics />
       <div className="md:mt-28 md:pt-4 pb-10">
         <div
           style={{

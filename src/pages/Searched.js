@@ -9,8 +9,9 @@ export default function Searched() {
   const { t } = useTranslation("common");
   const { searched } = useParams("searched");
   const { pathname } = useLocation();
+  const cleanPathname = decodeURIComponent(pathname).replaceAll(" ", "%20");
   const path = searched.replaceAll(" ", "%20");
-  console.log(path);
+
   return (
     <>
       <Navbar />
@@ -22,7 +23,7 @@ export default function Searched() {
           <Link
             to="photos"
             className={`inline-flex pb-2  dark:hover:text-white hover:text-black font-bold text-xl mx-2 px-2  mt-10 ${
-              pathname === "/search=" + path + "/photos"
+              cleanPathname === "/search=" + path + "/photos"
                 ? "dark:text-white text-black border-b-2 dark:border-white border-black"
                 : " text-gray-400"
             } `}
@@ -32,7 +33,7 @@ export default function Searched() {
           <Link
             to="users"
             className={`inline-flex pb-2 hover:text-black dark:hover:text-white font-bold text-xl mx-2 px-2  mt-10 ${
-              pathname === "/search=" + path + "/users"
+              cleanPathname === "/search=" + path + "/users"
                 ? "dark:text-white text-black border-b-2 dark:border-white border-black"
                 : " text-gray-400"
             } `}

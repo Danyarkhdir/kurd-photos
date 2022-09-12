@@ -19,7 +19,6 @@ export default function UserProfile() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   // fetch user informations
   useEffect(() => {
     const apiRoot = "https://api.unsplash.com";

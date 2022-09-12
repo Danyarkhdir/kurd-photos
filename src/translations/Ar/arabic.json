@@ -36,7 +36,8 @@
     "profile": "الملف الشخصي",
     "logout": "تسجيل الخروج",
     "searchPlaceHolder": "ابحث عن صورة",
-    "search": "بحث"
+    "search": "بحث",
+    "explore": "عام"
   },
   "profileModal": {
     "explore": "عام",
@@ -61,5 +62,29 @@
   },
   "userCard": {
     "viewProfile": "عرض الملف الشخصي"
+  },
+  "topic": {
+    "girls-vs-stereotypes": "الفتيات مقابل القوالب النمطية",
+    "travel": "يسافر",
+    "current-events": "الاحداث الحالية",
+    "wallpapers": "خلفيات",
+    "3d-renders": "عروض ثلاثية الأبعاد",
+    "textures-patterns": "أنماط القوام",
+    "experimental": "تجريبي",
+    "architecture": "فن معماري",
+    "nature": "طبيعة",
+    "business-work": "التجارة والعمل",
+    "fashion": "موضة",
+    "film": "فيلم",
+    "food-drink": "طعام وشراب",
+    "health": "الصحة و العافية",
+    "people": "اشخاص",
+    "interiors": "التصميمات الداخلية",
+    "street-photography": "تصوير الشوارع",
+    "animals": "الحيوانات",
+    "spirituality": "الروحانيات",
+    "arts-culture": "الفنون والثقافة",
+    "history": "تاريخ",
+    "athletics": "روح رياضية"
   }
 }

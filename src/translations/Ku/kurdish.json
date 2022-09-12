@@ -36,7 +36,8 @@
     "profile": "پەڕەی بەکارهێنەر",
     "logout": "دەرچوون",
     "searchPlaceHolder": "گەڕان بۆ وێنە",
-    "search": "گەڕان"
+    "search": "گەڕان",
+    "explore": "گشتی"
   },
   "profileModal": {
     "explore": "گشتی",
@@ -61,5 +62,29 @@
   },
   "userCard": {
     "viewProfile": "پەڕەی بەکارهێنەر ببینە"
+  },
+  "topic": {
+    "girls-vs-stereotypes": "کچان vs. سترێیۆتایپەکان",
+    "travel": "گەشت",
+    "current-events": "ڕووداوەکانی ئێستا",
+    "wallpapers": "وێنەی پاشبنەما",
+    "3d-renders": "وێنەی سێ رەهەندی",
+    "textures-patterns": "نەخشی پێکهاتەکان",
+    "experimental": "تاقیکاری",
+    "architecture": "تەلارسازی",
+    "nature": "سروشت",
+    "business-work": "بازرگانی و کار",
+    "fashion": "مۆدە",
+    "film": "فلیم",
+    "food-drink": "خواردن و خواردنەوە",
+    "health": "تەندروستی و باشی...",
+    "people": "خەڵک",
+    "interiors": "ناوەوە",
+    "street-photography": "وێنەی شەقامەکان",
+    "animals": "ئاژەڵان",
+    "spirituality": "ڕۆحانیەت",
+    "arts-culture": "هونەر و ڕۆشنبیری",
+    "history": "مێژوو",
+    "athletics": "وەرزشەوانی"
   }
 }

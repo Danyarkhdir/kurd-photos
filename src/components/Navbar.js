@@ -57,13 +57,20 @@ export default function Navbar() {
 
   function handleSearch(e) {
     e.preventDefault();
-    const cleanSearch = searched.replaceAll(/[^a-zA-Z0-9 ]/g, "");
+
+    const cleanSearch = decodeURIComponent(
+      searched.replaceAll(/[^a-zA-Z0-9أ-ی ]/g, "")
+    );
     if (searched) navigate(`/search=${cleanSearch}/photos`);
   }
   return (
     <div className="navbar md:fixed top-0 z-50 dark:text-white bg-white dark:bg-black  ">
       <div className="">
-        <Link to="" className=" dark:text-white text-black  ">
+        <Link
+          to="/"
+          className=" dark:text-white text-black  "
+          title={t("navbar.explore")}
+        >
           <MdCamera size={"40px"} />
         </Link>
       </div>
@@ -125,13 +132,16 @@ export default function Navbar() {
             }  dark:bg-black  rounded-box w-52`}
           >
             <li>
-              <Link to="" className="justify-between text-base">
+              <Link
+                to=""
+                className="justify-between text-base dark:text-white text-black"
+              >
                 {t("navbar.profile")}
               </Link>
             </li>
             <div className="collapse ">
               <input className="" type="checkbox" />
-              <div className=" collapse-title  text-base !px-4">
+              <div className=" collapse-title  text-base dark:text-white text-black !px-4">
                 {t("navbar.changeLang")}
               </div>
               <div className="collapse-content">
@@ -149,9 +159,9 @@ export default function Navbar() {
                         );
                       }}
                       key={lang.name}
-                      className={`flex items-center dark:text-white py-2 ${
+                      className={`flex items-center dark:text-white text-black py-1 ${
                         lang.current
-                          ? "dark:bg-gray-600 bg-gray-400"
+                          ? "dark:bg-gray-600 bg-gray-300"
                           : "dark:bg-black bg-white"
                       } gap-3 dark:hover:bg-gray-600 hover:bg-gray-400 px-2 cursor-pointer`}
                     >
@@ -172,7 +182,7 @@ export default function Navbar() {
               <Link
                 onClick={() => dispatch(logout())}
                 to="/"
-                className="text-base"
+                className="text-base dark:text-white text-black"
               >
                 {t("navbar.logout")}
               </Link>

@@ -37,7 +37,8 @@
     "logout": "Logout",
     "getStarted": "Get Started",
     "searchPlaceHolder": "Search free photos",
-    "search": "Search"
+    "search": "Search",
+    "explore": "Explore"
   },
   "profileModal": {
     "explore": "Explore",
@@ -62,5 +63,29 @@
   },
   "userCard": {
     "viewProfile": "View profile"
+  },
+  "topic": {
+    "girls-vs-stereotypes": "Girls vs. Stereotypes",
+    "travel": "Travel",
+    "current-events": "Current Events",
+    "wallpapers": "Wallpapers",
+    "3d-renders": "3D Renders",
+    "textures-patterns": "Textures Patterns",
+    "experimental": "Experimental",
+    "architecture": "Architecture",
+    "nature": "Nature",
+    "business-work": "Business & Work",
+    "fashion": "Fashion",
+    "film": "Film",
+    "food-drink": "Food & Drink",
+    "health": "Health & Wellness",
+    "people": "People",
+    "interiors": "Interiors",
+    "street-photography": "Street Photography",
+    "animals": "Animals",
+    "spirituality": "Spirituality",
+    "arts-culture": "Arts & Culture",
+    "history": "History",
+    "athletics": "Athletics"
   }
 }

@@ -32,7 +32,9 @@ export default function Image({ imageInfo, index }) {
               src={imageInfo.user.profile_image.small}
               alt="userImage"
             />
-            <span className="]  xs:text-lg ">{imageInfo.user.name}</span>
+            <span className="text-lg text-black dark:text-white ">
+              {imageInfo.user.name}
+            </span>
           </div>
         </Link>
         <div

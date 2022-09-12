@@ -3,19 +3,25 @@ import { initReactI18next } from "react-i18next";
 import kurdish from "./translations/Ku/kurdish.json";
 import english from "./translations/En/english.json";
 import arabic from "./translations/Ar/arabic.json";
+import kuTopicsDesc from "./translations/Ku/topicsDesc.json";
+import enTopicsDesc from "./translations/En/topicsDesc.json";
+import arTopicsDesc from "./translations/Ar/topicsDesc.json";
 
 // the translations
 // (tip move them in a JSON file and import them,
 // or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
 const resources = {
   en: {
-    common: english, // 'common' is our custom namespace
+    common: english,
+    topicsdesc: enTopicsDesc, // 'common' is our custom namespace
   },
   ku: {
     common: kurdish,
+    topicsdesc: kuTopicsDesc, // 'common' is our custom namespace
   },
   ar: {
     common: arabic,
+    topicsdesc: arTopicsDesc, // 'common' is our custom namespace
   },
 };
 
