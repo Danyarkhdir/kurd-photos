@@ -38,7 +38,9 @@
     "getStarted": "Get Started",
     "searchPlaceHolder": "Search free photos",
     "search": "Search",
-    "explore": "Explore"
+    "explore": "Explore",
+    "login": "Login",
+    "register": "Register"
   },
   "profileModal": {
     "explore": "Explore",
@@ -87,5 +89,9 @@
     "arts-culture": "Arts & Culture",
     "history": "History",
     "athletics": "Athletics"
+  },
+  "profile": {
+    "upload": "Upload Photo",
+    "favorites": "Favorites"
   }
 }

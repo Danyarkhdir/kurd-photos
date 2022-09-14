@@ -69,7 +69,7 @@ export default function MyProfile() {
                   : "text-gray-500"
               } dark:hover:text-white hover:text-black`}
             >
-              favorites
+              {t("profile.favorites")}
             </Link>
           </div>
           <Routes>

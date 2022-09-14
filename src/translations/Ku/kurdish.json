@@ -37,7 +37,9 @@
     "logout": "دەرچوون",
     "searchPlaceHolder": "گەڕان بۆ وێنە",
     "search": "گەڕان",
-    "explore": "گشتی"
+    "explore": "گشتی",
+    "login": "چونه‌ ژووره‌وه‌",
+    "register": "تۆمارکردن"
   },
   "profileModal": {
     "explore": "گشتی",
@@ -86,5 +88,9 @@
     "arts-culture": "هونەر و ڕۆشنبیری",
     "history": "مێژوو",
     "athletics": "وەرزشەوانی"
+  },
+  "profile": {
+    "upload": "وێنەیەک بار بکە",
+    "favorites": "دڵخوازەکان"
   }
 }

@@ -3,7 +3,9 @@ import { RiUserAddFill, RiUserFollowFill } from "react-icons/ri";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 export default function Profile({ user, profileImage }) {
+  const { t } = useTranslation("common");
   // to make sure we are not in profile page
   const location = useLocation();
   const showFollowButton =
@@ -31,8 +33,8 @@ export default function Profile({ user, profileImage }) {
           <span className="xs:text-2xl sm:text-3xl md:text-2xl xl:text-3xl font-bold dark:text-white text-black">
             {user.name}
           </span>
-          {!showFollowButton &&
-            (followed ? (
+          {!showFollowButton ? (
+            followed ? (
               <span
                 onClick={handleFollow}
                 className="flex items-center xs:mx-10 sm:mx-20 self-end rounded-md border border-gray-500 dark:hover:border-white hover:border-black p-1  px-4  "
@@ -54,7 +56,12 @@ export default function Profile({ user, profileImage }) {
                   size={25}
                 />
               </span>
-            ))}
+            )
+          ) : (
+            <span className="text-gray-500 dark:hover:text-white cursor-pointer hover:text-black flex items-center xs:mx-10 sm:mx-20 md:mx-0  xs:text-base md:text-xl self-end rounded-md border border-gray-500 dark:hover:border-white hover:border-black p-1  px-4  ">
+              {t("profile.upload")}
+            </span>
+          )}
         </div>
 
         {user.bio ? (

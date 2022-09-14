@@ -143,7 +143,7 @@ export default function Navbar() {
           >
             <Link
               to={auth ? "/profile" : "/login"}
-              className="justify-between text-base dark:text-white text-black px-4 pt-1"
+              className="justify-between text-base dark:hover:bg-gray-600 hover:bg-gray-400 dark:text-white text-black px-4 py-2"
             >
               {t("navbar.profile")}
             </Link>
@@ -191,7 +191,7 @@ export default function Navbar() {
               <Link
                 onClick={() => dispatch(logout())}
                 to="/"
-                className="text-base dark:text-white text-black px-4 pb-2"
+                className="text-base dark:hover:bg-gray-600 hover:bg-gray-400 dark:text-white text-black px-4 py-2"
               >
                 {t("navbar.logout")}
               </Link>
@@ -199,15 +199,15 @@ export default function Navbar() {
               <>
                 <Link
                   to="/login"
-                  className="text-base dark:text-white text-black px-4 pb-2"
+                  className="text-base dark:hover:bg-gray-600 hover:bg-gray-400 dark:text-white text-black px-4 py-2"
                 >
-                  Login
+                  {t("navbar.login")}
                 </Link>
                 <Link
                   to="/register"
-                  className="text-base dark:text-white text-black px-4 py-2"
+                  className="text-base dark:hover:bg-gray-600 hover:bg-gray-400 dark:text-white text-black px-4 py-2"
                 >
-                  Register
+                  {t("navbar.register")}
                 </Link>
               </>
             )}

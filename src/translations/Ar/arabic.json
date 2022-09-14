@@ -37,7 +37,9 @@
     "logout": "تسجيل الخروج",
     "searchPlaceHolder": "ابحث عن صورة",
     "search": "بحث",
-    "explore": "عام"
+    "explore": "عام",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل"
   },
   "profileModal": {
     "explore": "عام",
@@ -86,5 +88,9 @@
     "arts-culture": "الفنون والثقافة",
     "history": "تاريخ",
     "athletics": "روح رياضية"
+  },
+  "profile": {
+    "upload": "تحميل الصورة",
+    "favorites": "المفضلة"
   }
 }
