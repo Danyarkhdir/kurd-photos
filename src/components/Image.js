@@ -1,19 +1,26 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { IoIosAdd } from "react-icons/io";
 import { MdFavorite, MdDownload } from "react-icons/md";
 import Loading from "./Loading";
 export default function Image({ imageInfo, index }) {
-  const [isLiked, setIsLiked] = useState(false);
-  const [isSaved, setIsSaved] = useState(false);
+  console.log("image infos : ", imageInfo);
+  const auth = useSelector((state) => state.auth).isAuthenticated;
+  const navigate = useNavigate();
+  const [isLiked, setIsLiked] = useState(imageInfo.liked_by_user);
+  const [isFavorited, setIsFavorited] = useState(imageInfo.favorited_by_user);
   const [currentIndex, setCurrentIndex] = useState(-1);
   const [loaded, setLoaded] = useState(false);
+
   const handleUserActions = {
     handleLike: () => {
       setIsLiked(!isLiked);
+      imageInfo.liked_by_user = !isLiked;
     },
     handleFavorite: () => {
-      setIsSaved(!isSaved);
+      setIsFavorited(!isFavorited);
+      imageInfo.favorited_by_user = !isFavorited;
     },
   };
   return (
@@ -78,10 +85,10 @@ export default function Image({ imageInfo, index }) {
                 <MdFavorite
                   title={isLiked ? "Unlike" : "Like"}
                   onClick={() => {
-                    handleUserActions.handleLike();
+                    auth ? handleUserActions.handleLike() : navigate("/login");
                   }}
                   className={`rounded-lg cursor-pointer mt-1   p-1  ${
-                    isLiked
+                    imageInfo.liked_by_user
                       ? "bg-red-600   hover:bg-red-500 text-white"
                       : " bg-white dark:bg-black  text-gray-400 hover:text-gray-900 dark:hover:text-white "
                   }`}
@@ -92,16 +99,19 @@ export default function Image({ imageInfo, index }) {
             <div className="flex  ">
               <IoIosAdd
                 title={`${
-                  isSaved ? "Remove from favorites" : "Add to favorites"
+                  isFavorited ? "Remove from favorites" : "Add to favorites"
                 }`}
-                onClick={() => handleUserActions.handleFavorite()}
+                onClick={() =>
+                  auth ? handleUserActions.handleFavorite() : navigate("/login")
+                }
                 className={`mx-3 mt-1 rounded-lg cursor-pointer p-1  font-bold ${
-                  isSaved
+                  imageInfo.favorited_by_user
                     ? "bg-green-500  hover:bg-green-600 border-green-500  hover:border-green-600 text-white"
                     : " dark:bg-black bg-white   text-gray-400 dark:hover:text-white  hover:text-black"
                 }`}
                 size={35}
               />
+
               <MdDownload
                 title="Download"
                 className=" rounded-lg mt-1 cursor-pointer bg-white dark:bg-black p-1  dark:hover:text-white hover:text-black text-gray-400 "
@@ -116,10 +126,10 @@ export default function Image({ imageInfo, index }) {
               <MdFavorite
                 title={isLiked ? "Unlike" : "Like"}
                 onClick={() => {
-                  handleUserActions.handleLike();
+                  auth ? handleUserActions.handleLike() : navigate("/login");
                 }}
                 className={`rounded-lg cursor-pointer mt-1  border p-1  ${
-                  isLiked
+                  imageInfo.liked_by_user
                     ? "bg-red-600 border-red-600 hover:border-red-700 hover:bg-red-70  text-white"
                     : " bg-white  text-gray-400 hover:text-gray-900 "
                 }`}
@@ -130,11 +140,15 @@ export default function Image({ imageInfo, index }) {
           <div className="flex  ">
             <IoIosAdd
               title={`${
-                isSaved ? "Remove from favorites" : "Add to favorites"
+                imageInfo.favorited_by_user
+                  ? "Remove from favorites"
+                  : "Add to favorites"
               }`}
-              onClick={() => handleUserActions.handleFavorite()}
+              onClick={() =>
+                auth ? handleUserActions.handleFavorite() : navigate("/login")
+              }
               className={`mx-3 mt-1 rounded-lg cursor-pointer p-1 border font-bold ${
-                isSaved
+                isFavorited
                   ? "bg-green-500  hover:bg-green-600 border-green-500  hover:border-green-600 text-white"
                   : " bg-white   text-gray-400 hover:text-gray-900 border-gray-400 hover:border-gray-500"
               }`}

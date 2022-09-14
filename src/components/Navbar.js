@@ -13,6 +13,8 @@ export default function Navbar() {
   const navigate = useNavigate();
   const [searched, setSearched] = useState("");
   const lang = useSelector((state) => state.language.lang);
+  const auth = useSelector((state) => state.auth).isAuthenticated;
+  console.log(auth);
   const [showModal, setShowModal] = useState(false);
   const { t, i18n } = useTranslation("common");
   const mode =
@@ -120,10 +122,18 @@ export default function Navbar() {
               }}
               className="w-10 rounded-full"
             >
-              <img src="https://placeimg.com/80/80/people" alt="user" />
+              {/* profile image */}
+              {auth ? (
+                <img src="https://placeimg.com/80/80/people" alt="user" />
+              ) : (
+                <img
+                  src="https://goodsamjc.org/wp-content/uploads/2020/01/16196015_10154888128487744_6901111466535510271_n.png"
+                  alt="user"
+                />
+              )}
             </div>
           </label>
-          <ul
+          <div
             tabIndex="0"
             className={`${
               showModal ? "" : "hidden"
@@ -131,14 +141,13 @@ export default function Navbar() {
               lang === "en" ? "" : "!fixed left-2"
             }  dark:bg-black  rounded-box w-52`}
           >
-            <li>
-              <Link
-                to=""
-                className="justify-between text-base dark:text-white text-black"
-              >
-                {t("navbar.profile")}
-              </Link>
-            </li>
+            <Link
+              to={auth ? "/profile" : "/login"}
+              className="justify-between text-base dark:text-white text-black px-4 pt-1"
+            >
+              {t("navbar.profile")}
+            </Link>
+
             <div className="collapse ">
               <input className="" type="checkbox" />
               <div className=" collapse-title  text-base dark:text-white text-black !px-4">
@@ -178,16 +187,31 @@ export default function Navbar() {
               </div>
             </div>
 
-            <li>
+            {auth ? (
               <Link
                 onClick={() => dispatch(logout())}
                 to="/"
-                className="text-base dark:text-white text-black"
+                className="text-base dark:text-white text-black px-4 pb-2"
               >
                 {t("navbar.logout")}
               </Link>
-            </li>
-          </ul>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="text-base dark:text-white text-black px-4 pb-2"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  className="text-base dark:text-white text-black px-4 py-2"
+                >
+                  Register
+                </Link>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>

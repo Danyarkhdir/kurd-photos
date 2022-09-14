@@ -37,6 +37,13 @@ export default function UserLikes({ username }) {
     window.scrollTo(0, 0);
     fetchMore();
   }
+  if (userLiked.length === 0) {
+    return (
+      <h1 className=" flex items-center justify-center text-5xl h-44">
+        No likes yet!
+      </h1>
+    );
+  }
   return (
     <InfiniteScroll
       dataLength={userLikedLength}

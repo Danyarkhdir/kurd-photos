@@ -3,12 +3,13 @@ import { useState } from "react";
 import Gallery from "./Gallery";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Loading from "./Loading";
-export default function UserPhotos({ username }) {
-  const [userPhotos, setUserPhotos] = useState([]);
-  const [userPhotosLength, setUserPhotosLength] = useState(0);
+
+export default function UserFavorites({ username }) {
+  const [userFavorited, setUserFavorited] = useState([]);
+  const [userFavoritedLength, setUserFavoritedLength] = useState(0);
   const [page, setPage] = useState({
     currentPage: 1,
-    userPhotosCurrentLength: userPhotos.length,
+    userFavoritedCurrentLength: userFavorited.length,
   });
 
   //   fetch current user's photos
@@ -18,14 +19,14 @@ export default function UserPhotos({ username }) {
 
     axios
       .get(
-        `${apiRoot}/users/${username}/photos?client_id=${accessKey}&per_page=30&page=${currentPage}`
+        `${apiRoot}/users/${username}/likes?client_id=${accessKey}&per_page=30&page=${currentPage}`
       )
       .then((response) => {
-        setUserPhotosLength(userPhotos.length);
-        setUserPhotos([...userPhotos, ...response.data]);
+        setUserFavoritedLength(userFavorited.length);
+        setUserFavorited([...userFavorited, ...response.data]);
         setPage({
           currentPage: currentPage + 1,
-          userPhotosCurrentLength: userPhotos.length,
+          userFavoritedCurrentLength: userFavorited.length,
         });
       })
       .catch((error) => {
@@ -37,21 +38,23 @@ export default function UserPhotos({ username }) {
     fetchMore();
   }
 
-  if (userPhotos.length === 0) {
+  if (userFavorited.length === 0) {
     return (
       <h1 className=" flex items-center justify-center text-5xl h-44">
-        No photos yet!
+        No favorites yet!
       </h1>
     );
   }
   return (
     <InfiniteScroll
-      dataLength={userPhotosLength}
+      dataLength={userFavoritedLength}
       next={() => fetchMore(page.currentPage)}
-      hasMore={userPhotos.length > page.userPhotosCurrentLength ? true : false}
+      hasMore={
+        userFavorited.length > page.userFavoritedCurrentLength ? true : false
+      }
       loader={<Loading />}
     >
-      <Gallery images={userPhotos} />
+      <Gallery images={userFavorited} />
     </InfiniteScroll>
   );
 }

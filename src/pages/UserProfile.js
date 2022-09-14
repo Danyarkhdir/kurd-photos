@@ -60,7 +60,7 @@ export default function UserProfile() {
 
                 <Link
                   to={`/@${username.username}/likes`}
-                  className={`xs:mx-20 md:mx-36 px-3 cursor-pointer ${
+                  className={`xs:mx-20 md:mx-36 px-3 pb-3 cursor-pointer ${
                     location.pathname === `/@${username.username}/likes`
                       ? "border-b-2 dark:border-white border-black dark:text-white text-black"
                       : "text-gray-500"

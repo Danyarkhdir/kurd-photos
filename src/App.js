@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import UserProfile from "./pages/UserProfile";
 import Searched from "./pages/Searched";
 import TopicImages from "./pages/TopicImages";
+import MyProfile from "./pages/MyProfile";
 function App() {
   const { t } = useTranslation("common");
   const darkMode = useSelector((state) => state.darkMode).darkMode;
@@ -33,6 +34,7 @@ function App() {
         <Route path="/@:username/*" element={<UserProfile />} />
         <Route path="/search=:searched/*" element={<Searched />} />
         <Route path="topic/:topicSlug" element={<TopicImages />} />
+        <Route path="profile/*" element={<MyProfile />} />
       </Routes>
     </div>
   );

@@ -70,7 +70,7 @@ export default function Login() {
             className="mt-6  text-white bg-green-600  rounded h-12 text-xl cursor-pointer active:bg-gray-900  "
           />
         </form>
-        <div className="border dark:text-gray-700 border-gray-500 bg-gray-300 mx-2 py-5 text-center mt-6 rounded-sm text-l ">
+        <div className="border text-gray-700 border-gray-500 bg-gray-300 mx-2 py-5 text-center mt-6 rounded-sm text-l ">
           <p>
             {t("login.dontHaveAccount")}
             <Link

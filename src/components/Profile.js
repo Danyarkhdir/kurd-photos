@@ -2,7 +2,14 @@ import { useState } from "react";
 import { RiUserAddFill, RiUserFollowFill } from "react-icons/ri";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
+import { useLocation } from "react-router-dom";
 export default function Profile({ user, profileImage }) {
+  // to make sure we are not in profile page
+  const location = useLocation();
+  const showFollowButton =
+    location.pathname === "/profile" ||
+    location.pathname === "/profile/likes" ||
+    location.pathname === "/profile/favorites";
   const [followed, setFollowed] = useState(false);
 
   const handleFollow = () => {
@@ -24,29 +31,30 @@ export default function Profile({ user, profileImage }) {
           <span className="xs:text-2xl sm:text-3xl md:text-2xl xl:text-3xl font-bold dark:text-white text-black">
             {user.name}
           </span>
-          {followed ? (
-            <span
-              onClick={handleFollow}
-              className="flex items-center xs:mx-10 sm:mx-20 self-end rounded-md border border-gray-500 dark:hover:border-white hover:border-black p-1  px-4  "
-            >
-              <RiUserFollowFill
-                title="Unfollow"
-                className="text-gray-500 dark:hover:text-white  hover:text-black"
-                size={25}
-              />
-            </span>
-          ) : (
-            <span
-              onClick={handleFollow}
-              className="flex items-center xs:mx-10 sm:mx-20 self-end rounded-md border border-gray-500 dark:hover:border-white hover:border-black p-1  px-4 "
-            >
-              <RiUserAddFill
-                title="Follow"
-                className="text-gray-500 dark:hover:text-white hover:text-black"
-                size={25}
-              />
-            </span>
-          )}
+          {!showFollowButton &&
+            (followed ? (
+              <span
+                onClick={handleFollow}
+                className="flex items-center xs:mx-10 sm:mx-20 self-end rounded-md border border-gray-500 dark:hover:border-white hover:border-black p-1  px-4  "
+              >
+                <RiUserFollowFill
+                  title="Unfollow"
+                  className="text-gray-500 dark:hover:text-white  hover:text-black"
+                  size={25}
+                />
+              </span>
+            ) : (
+              <span
+                onClick={handleFollow}
+                className="flex items-center xs:mx-10 sm:mx-20 self-end rounded-md border border-gray-500 dark:hover:border-white hover:border-black p-1  px-4 "
+              >
+                <RiUserAddFill
+                  title="Follow"
+                  className="text-gray-500 dark:hover:text-white hover:text-black"
+                  size={25}
+                />
+              </span>
+            ))}
         </div>
 
         {user.bio ? (
