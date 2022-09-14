@@ -1,6 +1,6 @@
 # KrPics
 
-- A general photo website to upload, view and download photos we which we like.
+- A general photo website to upload, view and download photos which we like.
 
 ## Features
 
