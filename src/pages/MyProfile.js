@@ -7,7 +7,7 @@ import UserLikes from "../components/UserLikes";
 import { useTranslation } from "react-i18next";
 import UserFavorites from "../components/UserFavorites";
 import Footer from "../components/Footer";
-import PageNotFound from "./PageNotFound";
+import NotFound from "./PageNotFound";
 
 export default function MyProfile() {
   const { t } = useTranslation("common");
@@ -28,7 +28,7 @@ export default function MyProfile() {
   }, []);
 
   if (!user) {
-    return "User Not found";
+    return <NotFound text="User" />;
   }
   return (
     <div className="pb-10">
