@@ -17,7 +17,7 @@ export default function Login() {
     navigate("/");
   };
   return (
-    <div className="w-full h-screen dark:bg-black bg-white">
+    <div className="w-full  dark:bg-black bg-white pb-10">
       <div className="md:w-6/12 w-full mx-auto ">
         <div className="dark:text-white text-black  p-1 flex flex-col items-center">
           <AiOutlineCamera className="dark:text-white text-black text-8xl " />

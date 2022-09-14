@@ -39,7 +39,7 @@ export default function UserPhotos({ username }) {
 
   if (userPhotos.length === 0) {
     return (
-      <h1 className=" flex items-center justify-center text-5xl h-44">
+      <h1 className=" dark:text-white text-black flex items-center justify-center h-screen px-2 xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
         No photos yet!
       </h1>
     );

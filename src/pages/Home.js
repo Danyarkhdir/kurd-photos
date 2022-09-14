@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Topics from "../components/Topics";
 import MainLayout from "../layouts/MainLayout";
+import Footer from "../components/Footer";
 export default function Home() {
   const { t } = useTranslation("common");
   const [images, setImages] = useState([]);
@@ -33,7 +34,7 @@ export default function Home() {
     <>
       <MainLayout />
       <Topics />
-      <div className="md:mt-28 md:pt-4 pb-10">
+      <div className="md:mt-28 md:pt-4 ">
         <div
           style={{
             backgroundImage:
@@ -56,6 +57,7 @@ export default function Home() {
             <Gallery images={images} />
           </InfiniteScroll>
         </div>
+        <Footer />
       </div>
     </>
   );

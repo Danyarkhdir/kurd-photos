@@ -5,13 +5,13 @@ import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import SearchUser from "../components/SearchUser";
+import Footer from "../components/Footer";
 export default function Searched() {
   const { t } = useTranslation("common");
   const { searched } = useParams("searched");
   const { pathname } = useLocation();
   const cleanPathname = decodeURIComponent(pathname).replaceAll(" ", "%20");
   const path = searched.replaceAll(" ", "%20");
-
   return (
     <>
       <Navbar />
@@ -23,7 +23,7 @@ export default function Searched() {
           <Link
             to="photos"
             className={`inline-flex pb-2  dark:hover:text-white hover:text-black font-bold text-xl mx-2 px-2  mt-10 ${
-              cleanPathname === "/search=" + path + "/photos"
+              cleanPathname !== "/search=" + path + "/users"
                 ? "dark:text-white text-black border-b-2 dark:border-white border-black"
                 : " text-gray-400"
             } `}
@@ -42,9 +42,10 @@ export default function Searched() {
           </Link>
         </div>
         <Routes>
-          <Route path="photos" element={<SearchPhoto searched={searched} />} />
+          <Route path="*" element={<SearchPhoto searched={searched} />} />
           <Route path="users" element={<SearchUser searched={searched} />} />
         </Routes>
+        <Footer />
       </div>
     </>
   );

@@ -66,7 +66,7 @@ export default function Navbar() {
     if (searched) navigate(`/search=${cleanSearch}/photos`);
   }
   return (
-    <div className="navbar md:fixed top-0 z-50 dark:text-white bg-white dark:bg-black  ">
+    <div className="navbar md:fixed top-0 z-40 dark:text-white bg-white dark:bg-black  ">
       <div className="">
         <Link
           to="/"

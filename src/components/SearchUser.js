@@ -29,6 +29,14 @@ export default function SearchUser({ searched }) {
   }
 
   if (page.currentPage === 1) fetchMore(page.currentPage);
+
+  if (users.length === 0) {
+    return (
+      <h1 className=" dark:text-white text-black h-screen flex items-center  justify-center px-2 xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl ">
+        No users found for "{searched}"
+      </h1>
+    );
+  }
   return (
     <InfiniteScroll
       dataLength={users.length}

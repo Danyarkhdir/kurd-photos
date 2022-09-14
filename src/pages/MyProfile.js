@@ -6,6 +6,8 @@ import UserPhotos from "../components/UserPhotos";
 import UserLikes from "../components/UserLikes";
 import { useTranslation } from "react-i18next";
 import UserFavorites from "../components/UserFavorites";
+import Footer from "../components/Footer";
+import PageNotFound from "./PageNotFound";
 
 export default function MyProfile() {
   const { t } = useTranslation("common");
@@ -14,10 +16,10 @@ export default function MyProfile() {
   const user = [];
 
   const myData = {
-    name: "Chloe Cora",
+    name: "Mera Muhsin",
     bio: "Hello Everyone..... Ths is my bio",
     location: "Erbil, Kurdistan",
-    instagram_username: "chloe.cora",
+    instagram_username: "mera.kurdi",
   };
 
   // on first render scroll to the top of window
@@ -29,7 +31,7 @@ export default function MyProfile() {
     return "User Not found";
   }
   return (
-    <div>
+    <div className="pb-10">
       <Navbar />
       <div className=" md:mt-16  dark:bg-blackflex flex-col   w-full text-xl ">
         <Profile
@@ -72,7 +74,7 @@ export default function MyProfile() {
           </div>
           <Routes>
             <Route
-              path="/"
+              path="*"
               element={<UserPhotos username={username.username} />}
             />
             <Route
@@ -86,6 +88,7 @@ export default function MyProfile() {
           </Routes>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

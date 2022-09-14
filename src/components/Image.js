@@ -49,14 +49,16 @@ export default function Image({ imageInfo, index }) {
           onMouseEnter={() => setCurrentIndex(index)}
           className="relative bg-black "
         >
-          <img
-            onLoad={() => setLoaded(true)}
-            className={` cursor-pointer ${
-              currentIndex === index ? "opacityStyle" : "opacity-100"
-            }  `}
-            src={imageInfo.urls.regular}
-            alt={imageInfo.description}
-          />
+          <a href={imageInfo.links.download}>
+            <img
+              onLoad={() => setLoaded(true)}
+              className={` cursor-pointer ${
+                currentIndex === index ? "opacityStyle" : "opacity-100"
+              }  `}
+              src={imageInfo.urls.regular}
+              alt={imageInfo.description}
+            />
+          </a>
           <Link
             to={`/@${imageInfo.user.username}`}
             className={`${currentIndex === index ? "hoverStyle" : "hidden"}  `}

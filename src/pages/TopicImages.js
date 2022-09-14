@@ -8,6 +8,8 @@ import { useEffect, useState } from "react";
 import Loading from "../components/Loading";
 import Gallery from "../components/Gallery";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Footer from "../components/Footer";
+import NotFound from "./NotFound";
 export default function TopicImages() {
   const { t } = useTranslation(["common", "topicsdesc"]);
 
@@ -60,12 +62,14 @@ export default function TopicImages() {
         console.log(error);
       });
   }
-
+  if (!topicsBackground[topicSlug]) {
+    return <NotFound text="Topic" />;
+  }
   return (
     <>
       <MainLayout />
       <Topics current={topicSlug} />
-      <div className="md:mt-28 md:pt-4 pb-10">
+      <div className="md:mt-28 md:pt-4">
         <div
           style={{
             backgroundImage: `url(${topicsBackground[topicSlug]})`,
@@ -92,6 +96,7 @@ export default function TopicImages() {
             <Gallery images={topicPhotos} />
           </InfiniteScroll>
         </div>
+        <Footer />
       </div>
     </>
   );

@@ -7,6 +7,8 @@ import UserPhotos from "../components/UserPhotos";
 import UserLikes from "../components/UserLikes";
 import Loading from "../components/Loading";
 import { useTranslation } from "react-i18next";
+import Footer from "../components/Footer";
+import NotFound from "./NotFound";
 
 export default function UserProfile() {
   const { t } = useTranslation("common");
@@ -36,12 +38,12 @@ export default function UserProfile() {
   }, [username]);
 
   if (!user) {
-    return "User Not found";
+    return <NotFound text="User" />;
   }
   return (
     <>
       {user.profile_image ? (
-        <div>
+        <div className="pb-10">
           <Navbar />
           <div className=" md:mt-16  dark:bg-blackflex flex-col   w-full text-xl ">
             <Profile user={user} profileImage={profileImage} />
@@ -81,6 +83,7 @@ export default function UserProfile() {
               </Routes>
             </div>
           </div>
+          <Footer />
         </div>
       ) : (
         <div className={"block w-full h-screen "}>
