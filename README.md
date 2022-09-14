@@ -15,4 +15,4 @@
 
 ## Api Used
 
-- Unsplash Api for whole project. [Link](https://unsplash.com/documentation)
+- Unsplash Api for whole project. [view api documentation](https://github.com/unsplash.com/documentation)
