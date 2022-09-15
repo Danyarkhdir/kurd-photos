@@ -22,17 +22,21 @@ export default function MyProfile() {
     instagram_username: "mera.kurdi",
   };
 
-  // on first render scroll to the top of window
+  // on first render scroll to the top of screen
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  // if user is not found
   if (!user) {
     return <NotFound text="User" />;
   }
   return (
     <div className="pb-10">
+      {/* Header of my-Profile */}
       <Navbar />
+
+      {/* content */}
       <div className=" md:mt-16  dark:bg-blackflex flex-col   w-full text-xl ">
         <Profile
           user={myData}

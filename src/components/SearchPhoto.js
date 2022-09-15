@@ -14,6 +14,7 @@ export default function SearchPhoto({ searched }) {
     fetchImages();
   }, [searched]);
 
+  // Fetch Images from Unsplash API using Axios and searched query
   function fetchImages() {
     axios
       .get(
@@ -30,6 +31,8 @@ export default function SearchPhoto({ searched }) {
         console.log(error);
       });
   }
+
+  // Fetch More Images  with same search query if needed
   function fetchMore(currentPage = 2) {
     axios
       .get(
@@ -46,6 +49,8 @@ export default function SearchPhoto({ searched }) {
         console.log(error);
       });
   }
+
+  // if no posts available
   if (images.length === 0) {
     return (
       <h1 className=" flex items-center dark:text-white text-black justify-center h-screen px-2 xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl ">
@@ -53,6 +58,7 @@ export default function SearchPhoto({ searched }) {
       </h1>
     );
   }
+
   return (
     <InfiniteScroll
       dataLength={images.length}

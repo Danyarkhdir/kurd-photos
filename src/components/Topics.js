@@ -55,8 +55,7 @@ export default function Topics({ current }) {
   return (
     <div className="md:fixed dark:bg-black bg-white md:top-16 md:pt-2  z-30 w-full ">
       <div className="relative flex   items-center border-b border-black">
-        {/* Explore */}
-        {/* <h1>Danyar</h1> */}
+        {/* Topics arrow  */}
         {language === "en" ? (
           <MdChevronLeft
             className="opacity-50 cursor-pointer hover:opacity-100"

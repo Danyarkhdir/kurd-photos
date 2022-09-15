@@ -8,6 +8,7 @@ export default function SearchUser({ searched }) {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState({ currentPage: 1, totalPage: 1 });
 
+  // Fetch Users from Unsplash API
   function fetchMore(currentPage = 1) {
     const apiRoot = "https://api.unsplash.com";
     const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
@@ -30,6 +31,7 @@ export default function SearchUser({ searched }) {
 
   if (page.currentPage === 1) fetchMore(page.currentPage);
 
+  // if no users available
   if (users.length === 0) {
     return (
       <h1 className=" dark:text-white text-black h-screen flex items-center  justify-center px-2 xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl ">

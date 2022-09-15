@@ -19,6 +19,8 @@ export default function Searched() {
         <h2 className="font-bold px-4 dark:text-white text-black pt-4 text-3xl">
           {t("searched.resultsFor")} '{searched}'
         </h2>
+
+        {/* Routes */}
         <div className="border-b dark:border-white border-black">
           <Link
             to="photos"

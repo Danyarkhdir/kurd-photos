@@ -59,7 +59,6 @@ export default function Navbar() {
 
   function handleSearch(e) {
     e.preventDefault();
-
     const cleanSearch = decodeURIComponent(
       searched.replaceAll(/[^a-zA-Z0-9أ-ی ]/g, "")
     );
@@ -76,6 +75,7 @@ export default function Navbar() {
           <MdCamera size={"40px"} />
         </Link>
       </div>
+      {/* Start of  SearchBar */}
       <form
         className="form-control  flex-1 xs:mx-3 md:mx-14  lg:mx-16 xl:mx-20"
         onSubmit={(e) => {
@@ -100,8 +100,10 @@ export default function Navbar() {
           />
         </div>
       </form>
+      {/* End of SearchBar */}
+
       <div className="flex justify-between items-center gap-2 ">
-        {/* DarkMode toggle */}
+        {/* DarkMode & lightMode toggle */}
         <label className="xs:mx-0 md:mx-4">
           <CgDarkMode
             title={mode ? "Light Mode" : "Dark Mode"}
@@ -113,7 +115,7 @@ export default function Navbar() {
           />
         </label>
 
-        {/*  Profile DropDown */}
+        {/* Start Profile DropDown */}
         <div className="dropdown dropdown-end ">
           <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
             <div
@@ -213,6 +215,7 @@ export default function Navbar() {
             )}
           </div>
         </div>
+        {/* End Profile DropDown */}
       </div>
     </div>
   );

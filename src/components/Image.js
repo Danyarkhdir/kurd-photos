@@ -5,7 +5,6 @@ import { IoIosAdd } from "react-icons/io";
 import { MdFavorite, MdDownload } from "react-icons/md";
 import Loading from "./Loading";
 export default function Image({ imageInfo, index }) {
-  console.log("image infos : ", imageInfo);
   const auth = useSelector((state) => state.auth).isAuthenticated;
   const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(imageInfo.liked_by_user);

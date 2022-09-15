@@ -12,6 +12,7 @@ export default function UserCard({ user }) {
   return (
     <div className="border border-gray-400 dark:hover:border-white hover:border-black rounded p-4 ">
       <div>
+        {/* Headaer */}
         <div className="flex items-center justify-between ">
           <div
             onClick={() => {
@@ -75,11 +76,14 @@ export default function UserCard({ user }) {
             })}
           </div>
         ) : (
+          // if user has no photos
           <h2 className="h-[100px]  w-full flex items-center justify-center text-xl  ">
             {" "}
             No Posts yet
           </h2>
         )}
+
+        {/* Link to user profile */}
         <Link
           className="block w-full text-center mt-4 text-gray-400 dark:hover:text-white hover:text-black dark:hover:border-white hover:border-black border py-1 border-gray-400 rounded"
           to={`/@${user.username}`}

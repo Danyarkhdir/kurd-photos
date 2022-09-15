@@ -33,8 +33,12 @@ export default function Home() {
   return (
     <>
       <MainLayout />
+
+      {/* Topics Scroll menu  */}
       <Topics />
+
       <div className="md:mt-28 md:pt-4 ">
+        {/* Header Background image */}
         <div
           style={{
             backgroundImage:

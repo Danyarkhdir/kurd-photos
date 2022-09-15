@@ -9,6 +9,7 @@ export default function Footer() {
       </div>
       <div>
         <div className="grid grid-flow-col gap-4">
+          {/* instagram logo */}
           <a href="https://www.instagram.com/the.danyar/?hl=en">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -26,6 +27,7 @@ export default function Footer() {
               ></path>{" "}
             </svg>
           </a>
+          {/* facebook logo */}
           <a href="https://www.facebook.com/danyar.barzany/">
             <svg
               xmlns="http://www.w3.org/2000/svg"

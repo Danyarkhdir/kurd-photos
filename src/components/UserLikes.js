@@ -37,6 +37,8 @@ export default function UserLikes({ username }) {
     window.scrollTo(0, 0);
     fetchMore();
   }
+
+  // if user didn't like any photos
   if (userLiked.length === 0) {
     return (
       <h1 className=" flex items-center dark:text-white text-black justify-center h-screen px-2 xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl">

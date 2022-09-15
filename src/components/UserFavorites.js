@@ -12,7 +12,7 @@ export default function UserFavorites({ username }) {
     userFavoritedCurrentLength: userFavorited.length,
   });
 
-  //   fetch current user's photos
+  //   fetch current user's favorite photos
   const fetchMore = (currentPage = 1) => {
     const apiRoot = "https://api.unsplash.com";
     const accessKey = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
@@ -38,6 +38,7 @@ export default function UserFavorites({ username }) {
     fetchMore();
   }
 
+  // if user didn't favorite any photos
   if (userFavorited.length === 0) {
     return (
       <h1 className=" flex dark:text-white text-black items-center justify-center h-screen px-2 xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
